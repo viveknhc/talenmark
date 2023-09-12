@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Talenmark</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="container">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Dropdown
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <style>
+        .certificate {
+            padding: 50px 50px;
+        }
+
+        .main-head {
+            margin: 20px 0;
+        }
+
+        .main-head h3 {
+
+            color: #ffffff;
+            background-color: #000;
+            display: inline;
+        }
+
+        .table {
+            border: 1px solid #484546;
+        }
+
+        tr .table-head {
+            color: #000;
+            background-color: #484546;
+            text-align: center;
+            font-weight: 700;
+            font-size: 17px;
+        }
+    </style>
+
+    <button class="btn downloadbtn d-lg-block d-sm-none d-md-none d-xl-block d-none" id="downloadButton">
+        Download Now <i class="ti ti-download ms-2"></i></button>
+
+    <div class="container">
+        <div id="content" class="certificate d-lg-block d-sm-none d-md-none d-xl-block d-none">
+            <div class="logo-banner">
+                <img class="img-fluid" src="assets/images/logo.jpeg" alt="">
+            </div>
+
+            <div class="main-head text-center">
+                <h3>BOOKING APPLICATION FORM</h3>
+            </div>
+            <div>
+                <p>
+                    To, <br>
+                    Talenmark Properties LLP <br>
+                    TalenHouse, K.T Gopalan Road <br>
+                    Kottooli, Kozhikode - 673016 <br>
+                    Kerala - India
+                </p>
+            </div>
+
+            <div class="pt-5">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th colspan="3">Project Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Date of booking : </th>
+                            <td>Customer ID No :</td>
+                            <td>Enquiry No :</td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="3" class="table-head">PERSONAL INFORMATION ( to be filled in block letters)
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        document.getElementById('downloadButton').addEventListener('click', function () {
+            const divContent = document.getElementById('content');
+            const options = {
+                filename: 'content.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait', margin: [10, 10] }
+            };
+            html2pdf().from(divContent).set(options).save();
+
+        });
+    </script>
+
+
+</body>
+
+</html>

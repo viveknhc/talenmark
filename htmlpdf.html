@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML to PDF</title>
+    <!-- Include jsPDF library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div id="pdf-content">
+        <h1>My PDF Document</h1>
+        <p>This is some content that will be converted to PDF.</p>
+    </div>
+
+    <button id="generate-pdf">Generate PDF</button>
+
+    <script>
+        // Add an event listener to the button
+        document.getElementById('generate-pdf').addEventListener('click', function () {
+            const pdfContent = document.getElementById('pdf-content').innerHTML;
+
+            // Create a new jsPDF instance
+            const pdf = new jsPDF();
+
+            // Add the HTML content to the PDF using the fromHTML method
+            pdf.fromHTML(pdfContent, 10, 10);
+
+            // Save or display the generated PDF as needed
+            pdf.save('my-document.pdf');
+        });
+    </script>
+</body>
+</html>

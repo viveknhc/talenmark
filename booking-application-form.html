@@ -60,106 +60,461 @@
                 <h3>BOOKING APPLICATION FORM</h3>
             </div>
 
-            <div class="wizard-form-box form-step active" id="step-1">
-                <div>
-                    <h5>
-                        PROJECT DETAILS
-                    </h5>
-                </div>
-                <form action="" id="form-wizard">
-                    <div class="row g-5">
-                        <div class="col-lg-12">
-                            <label for="">Project Details</label>
-                            <input type="text" name="" id="">
-                        </div>
-                        <div class="col-lg-4">
-                            <label for="">Date of Booking</label>
-                            <input type="date" name="" id="">
+            <div class="wizard-container">
+                <form id="wizard-form">
+
+                    <div class="step active" id="step-1">
+                        <h5>Project Details</h5>
+                        <div class="row">
+
+                            <div class="col-lg-12 pb-lg-5">
+                                <label for="name">Project Name:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+
+                            <div class="col-lg-4 pb-lg-5">
+                                <label for="name">Date of Booking:</label>
+                                <input type="date" id="name" name="name" required>
+                            </div>
+                            <div class="col-lg-4 pb-lg-5">
+                                <label for="name">Customer ID Number:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="col-lg-4 pb-lg-5">
+                                <label for="name">Enquiry No:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+
                         </div>
 
-                        <div class="col-lg-4">
-                            <label for="">Customer ID No</label>
-                            <input type="text" name="" id="">
+                        <div class="button-container button-box">
+                            <button class="button next" onclick="nextStep(1)">Next</button>
+                        </div>
+                    </div>
+
+                    <div class="step" id="step-2">
+                        <h5>PERSONAL INFORMATION ( to be filled in block letters )</h5>
+
+                        <div class="row">
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Name of the sole/first applicant Mr. / Mrs. / Ms.:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Name of the Co/second applican Mr. / Mrs. / Ms.:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Date of Birth:</label>
+                                <input type="date" id="name" name="name" required>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Date of Birth:</label>
+                                <input type="date" id="name" name="name" required>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Son / Daughter/ Wife of:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Son / Daughter/ Wife of:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Permanent Account No:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Permanent Account No:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Aadhar No:</label>
+                                <input type="number" id="name" name="name" required>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Aadhar No:</label>
+                                <input type="number" id="name" name="name" required>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Email Id:</label>
+                                <input type="email" id="name" name="name" required>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Email Id:</label>
+                                <input type="email" id="name" name="name" required>
+                            </div>
+
+
+                            <div class="col-lg-12 pb-lg-5">
+                                <label for="name">Correspondence Address:</label>
+                                <textarea name="" id="" cols="30" rows="5"></textarea>
+                            </div>
+
+                            <div class="col-lg-12 pb-lg-5">
+                                <label for="name">Permanent Address:</label>
+                                <textarea name="" id="" cols="30" rows="5"></textarea>
+                            </div>
+
+                            <div class="col-lg-12 pb-lg-5">
+                                <label for="name">Professional Details:</label>
+                                <textarea name="" id="" cols="30" rows="5"></textarea>
+                            </div>
+
+                            <div class="col-lg-12 pb-lg-5">
+                                <label for="name">Office address:</label>
+                                <textarea name="" id="" cols="30" rows="5"></textarea>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Phone No (Residency):</label>
+                                <input type="number" required>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Phone No (Mobile):</label>
+                                <input type="number" required>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Phone No (Office):</label>
+                                <input type="number" required>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Whatsapp No (Office):</label>
+                                <input type="number" required>
+                            </div>
+
+                            <div class="col-lg-12 pb-lg-5">
+                                <label for="name">How did you come to know about this project?:</label>
+                                <div>
+                                    <p>Advertisement</p>
+                                    <input type="checkbox" required>
+                                    <p>Company website</p>
+                                    <input type="checkbox" required>
+                                    <p>Referral</p>
+                                    <input type="checkbox" required>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Existing Talenmark Customer?:</label>
+                                <div>
+                                    <p>Yes</p>
+                                    <input type="checkbox" required>
+                                    <p>Company website</p>
+                                    <input type="checkbox" required>
+                                    <p>No If Yes, specify name of project you own in :</p>
+                                    <input type="checkbox" required>
+                                    <input type="text" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button-container button-box">
+                            <button class="button prev" onclick="prevStep(2)">Previous</button>
+                            <button class="button next" onclick="nextStep(2)">Next</button>
+                        </div>
+                    </div>
+
+                    <div class="step" id="step-3">
+                        <h5>FAMILY DETAILS</h5>
+
+                        <div class="row">
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Name of spouse::</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Date of Birth:</label>
+                                <input type="date" id="name" name="name" required>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Sex:</label>
+                                <label for="">Male</label>
+                                <input type="checkbox" id="name" name="name" required>
+                                <label for="">Female</label>
+                                <input type="checkbox" id="name" name="name" required>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Name of Child::</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+
+
+                        </div>
+                        <div class="button-container button-box">
+                            <button class="button prev" onclick="prevStep(3)">Previous</button>
+                            <button class="button next" onclick="nextStep(3)">Next</button>
+                        </div>
+                    </div>
+
+
+                    <div class="step" id="step-4">
+                        <h5>UNIT DETAILS</h5>
+
+                        <div class="row">
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Unit Alloted:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Type:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">BHK:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Floor:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Built up area:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Carpet area:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Unit cost:</label>
+                                <input type="number" id="name" name="name" required>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Registration Fee:</label>
+                                <input type="number" id="name" name="name" required>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">GST:</label>
+                                <input type="number" id="name" name="name" required>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Total unit cost:</label>
+                                <input type="number" id="name" name="name" required>
+                            </div>
+                        </div>
+                        <div class="button-container button-box">
+                            <button class="button prev" onclick="prevStep(4)">Previous</button>
+                            <button class="button next" onclick="nextStep(4)">Next</button>
+                        </div>
+                    </div>
+
+
+                    <div class="step" id="step-5">
+                        <h5>SOURCE OF BOOKING</h5>
+                        <div class="row">
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Unit Alloted:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Direct:</label>
+                                <input type="checkbox" id="name" name="name" required>
+
+                                <label for="">Name & Designation</label>
+                                <input type="text" name="" id="">
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Referral:</label>
+                                <input type="checkbox" id="name" name="name" required>
+
+                                <label for="">Name & Designation</label>
+                                <input type="text" name="" id="">
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Agent:</label>
+                                <input type="checkbox" id="name" name="name" required>
+
+                                <label for="">Name & Designation</label>
+                                <input type="text" name="" id="">
+                            </div>
+
+
+                        </div>
+                        <div class="button-container button-box">
+                            <button class="button prev" onclick="prevStep(5)">Previous</button>
+                            <button class="button next" onclick="nextStep(5)">Next</button>
+                        </div>
+                    </div>
+
+                    <div class="step" id="step-6">
+                        <h5>BOOKING PAYMENT DETAILS</h5>
+                        <div class="row">
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Bank:</label>
+                                <input type="date" id="name" name="name" required>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Branck:</label>
+                                <input type="date" id="name" name="name" required>
+                            </div>
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Date:</label>
+                                <input type="date" id="name" name="name" required>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Amount of Rs:</label>
+                                <input type="number" id="name" name="name" required>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">In words:</label>
+                                <input type="number" id="name" name="name" required>
+                            </div>
+
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Cheque/DD:</label>
+                                <input type="number" id="name" name="name" required>
+                            </div>
+                        </div>
+                        <div class="button-container button-box">
+                            <button class="button prev" onclick="prevStep(6)">Previous</button>
+                            <button class="button next" onclick="nextStep(6)">Next</button>
+                        </div>
+                    </div>
+
+                    <div class="step" id="step-7">
+                        <h5>TERMS & CONDITIONS</h5>
+                        <div class="row">
+                            <ul>
+                                <li>
+                                    On allotment booking advance of 10% of the cost of the villa is to paid by the
+                                    purchaser, if the purchaser cancels the booking,
+                                    a service charge of 10% will be deducted and the balance amount shall be paid to the
+                                    purchaser.
+                                </li>
+                                <li>
+                                    Once allotted and application signed, the prices will be firm
+                                </li>
+                                <li>
+                                    All payments should be by Local cheque/DD/Bank transfer favouring M/S. Talenmark
+                                    Properties LLP.
+                                </li>
+                                <li>
+                                    Possesion shall be given to the customer on settling of all dues to the company.
+                                </li>
+                                <li>
+                                    Membership in the Talenvista Owner's Association is compulsory and not optional and
+                                    the maintenance charges are payable by
+                                    the owners
+                                </li>
+                                <li>
+                                    It is a time bound project. In case, payments are not made as per the agreement, the
+                                    developer reserves the right to cancel the
+                                    allotment after notifying the client.
+                                </li>
+                            </ul>
+
                         </div>
 
-                        <div class="col-lg-4">
-                            <label for="">Project Details</label>
-                            <input type="text" name="" id="">
+                        <div class="row">
+                            <h5>Declaration</h5>
+                            <p>
+                                I/We, the undersigned applicant (sole/first and Co/second applicant), do hereby declare
+                                that the above mentioned particulars/
+                                information given by me/us are irrevocable, true and correct to my/our knowledge and no
+                                material fact has been concealed
+                                therefrom. I/We have gone through the terms and conditions written in this form and
+                                accept the same. I/We accept the terms
+                                and conditions mentioned above and agree to remit further installments as per the
+                                standard schedule of payments.
+                            </p>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label for="name">Signature of first applicant:</label>
+                                <input type="file" id="name" name="name" required>
+
+                                <label for="name">Date:</label>
+                                <input type="date" id="name" name="name" required>
+
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="name">Signature of first applicant:</label>
+                                <input type="file" id="name" name="name" required>
+
+                                <label for="name">Date:</label>
+                                <input type="date" id="name" name="name" required>
+                            </div>
+                        </div>
+
+                        <div class="button-container button-box">
+                            <button class="button prev" onclick="prevStep(7)">Previous</button>
+                            <button class="button next" onclick="nextStep(7)">Next</button>
                         </div>
                     </div>
-                    
-                    <div class="form-button">
-                        <button type="button" id="prev-button" onclick="prevStep()">Previous</button>
-                        <button type="button" id="next-button" onclick="nextStep()">Next</button>
-                        <button type="submit" id="submit-button" style="display: none;">Submit</button>
+
+
+
+                    <div class="step" id="step-8">
+                        <p>Thank you for completing the wizard!</p>
+                        <div class="button-container button-box">
+                            <button class="button prev" onclick="prevStep(8)">Previous</button>
+                            <button class="button submit" type="submit">Submit</button>
+                        </div>
                     </div>
-        
+
                 </form>
             </div>
-
-            <div class="form-step" id="step-2">
-                jhbkhjbkjhk
-            </div>
-
-
-        
-
         </div>
     </section>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
-        const form = document.getElementById('form-wizard');
-        const steps = Array.from(document.querySelectorAll('.form-step'));
-        const prevButton = document.getElementById('prev-button');
-        const nextButton = document.getElementById('next-button');
-        const submitButton = document.getElementById('submit-button');
+        let currentStep = 1;
 
-        let currentStep = 0;
-
-        function updateStepIndicator() {
-            const stepIndicator = document.querySelector('.step-indicator span');
-            stepIndicator.textContent = `Step ${currentStep + 1} of ${steps.length}`;
+        function nextStep(step) {
+            document.getElementById(`step-${step}`).classList.remove('active');
+            document.getElementById(`step-${step + 1}`).classList.add('active');
+            currentStep = step + 1;
         }
 
-        function prevStep() {
-            if (currentStep > 0) {
-                steps[currentStep].classList.remove('active');
-                currentStep--;
-                steps[currentStep].classList.add('active');
-                updateStepIndicator();
-            }
+        function prevStep(step) {
+            document.getElementById(`step-${step}`).classList.remove('active');
+            document.getElementById(`step-${step - 1}`).classList.add('active');
+            currentStep = step - 1;
         }
 
-        function nextStep() {
-            if (currentStep < steps.length - 1) {
-                steps[currentStep].classList.remove('active');
-                currentStep++;
-                steps[currentStep].classList.add('active');
-                updateStepIndicator();
-            }
-        }
-
-        form.addEventListener('submit', (e) => {
+        document.getElementById('wizard-form').addEventListener('submit', function (e) {
             e.preventDefault();
-            // Here, you can handle form submission and data processing.
-            // For this example, we'll just display the entered data in the review step.
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const address = document.getElementById('address').value;
-            const city = document.getElementById('city').value;
-
-            document.getElementById('review-name').textContent = name;
-            document.getElementById('review-email').textContent = email;
-            document.getElementById('review-address').textContent = address;
-            document.getElementById('review-city').textContent = city;
-
-            // Hide the "Next" button and show the "Submit" button
-            nextButton.style.display = 'none';
-            submitButton.style.display = 'inline-block';
+            alert('Form submitted successfully!');
         });
     </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
