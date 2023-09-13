@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Talenmark</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-    <header class="container">
+    <!-- <header class="container">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Navbar</a>
@@ -51,11 +54,11 @@
                 </div>
             </div>
         </nav>
-    </header>
+    </header> -->
 
     <style>
         .certificate {
-            padding: 50px 50px;
+            padding: 25px 25px;
         }
 
         .main-head {
@@ -63,32 +66,162 @@
         }
 
         .main-head h3 {
-
             color: #ffffff;
             background-color: #000;
             display: inline;
+            font-size: 20px;
+        }
+
+        .downloadbtn {
+            background-image: linear-gradient(45deg, red, rgb(192, 0, 0));
+            color: #fff;
+            font-weight: 600;
+            border: none;
+        }
+
+        .downloadbtn:hover {
+            background-image: linear-gradient(125deg, red, rgb(192, 0, 0));
+            color: #fff;
+            font-weight: 600;
+            border: none;
+        }
+
+        .logo-banner {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-banner img {
+            max-width: 50px;
+        }
+
+        .logo-banner h3 {
+            margin: 0;
+            font-weight: 700;
+            padding-left: 10px;
         }
 
         .table {
-            border: 1px solid #484546;
+            margin: 0;
+        }
+
+        td,
+        p {
+            font-size: 14px;
+        }
+
+        .table,
+        th,
+        td {
+            border: 1px solid #737272;
         }
 
         tr .table-head {
             color: #000;
-            background-color: #484546;
+            background-color: #bfbebe;
             text-align: center;
             font-weight: 700;
-            font-size: 17px;
+            font-size: 16px;
+        }
+
+        tr .demo-photo {
+            max-width: 110px;
+        }
+
+        tr .name {
+            color: #000;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 0 10px;
+            text-transform: uppercase;
+        }
+
+        tr address {
+            width: 46%;
+        }
+
+        tr input[type=text] {
+            border: none;
+            border-bottom: 1px solid rgb(0, 0, 0);
+        }
+
+        tr input[type=text]:focus {
+            border: none;
+            border-bottom: 2px solid red;
+        }
+
+        input[type="checkbox"] {
+            transform: scale(1.3);
+            border: 1px solid #000;
+            background-color: #fff;
+        }
+
+        .personal-col {
+            width: 20%;
+        }
+
+        .family-col {
+            width: 50%;
+        }
+
+        .family-details ul {
+            list-style: none;
+        }
+
+        .not-display {
+            visibility: hidden;
+        }
+
+        .signature {
+            max-width: 200px;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        /* page border */
+
+        /* Define a CSS class for the page border */
+        .page-border {
+            border: 2px solid #000;
+            /* You can adjust the border style as needed */
+            box-sizing: border-box;
+        }
+
+        /* Define the styles for the header and footer */
+        .page-header,
+        .page-footer {
+            width: 100%;
+            position: absolute;
+            text-align: center;
+        }
+
+        /* Apply the page border to header and footer */
+        .page-header,
+        .page-footer {
+            padding: 10px;
+            /* Adjust padding as needed */
+        }
+
+        /* Define the styles for the content area */
+        .page-content {
+            padding: 20px;
+            /* Adjust padding as needed */
         }
     </style>
 
-    <button class="btn downloadbtn d-lg-block d-sm-none d-md-none d-xl-block d-none" id="downloadButton">
-        Download Now <i class="ti ti-download ms-2"></i></button>
-
     <div class="container">
+
+        <div class="d-flex justify-content-end pt-4 container">
+            <button class="btn downloadbtn d-lg-block d-sm-none d-md-none d-xl-block d-none" id="downloadButton">
+                Download Now <i class="fa-regular fa-circle-down"></i></button>
+        </div>
+
         <div id="content" class="certificate d-lg-block d-sm-none d-md-none d-xl-block d-none">
             <div class="logo-banner">
-                <img class="img-fluid" src="assets/images/logo.jpeg" alt="">
+                <img class="img-fluid" src="assets/images/logo-icon.png" alt="">
+                <h3>TALENMARK</h3>
             </div>
 
             <div class="main-head text-center">
@@ -104,27 +237,424 @@
                 </p>
             </div>
 
-            <div class="pt-5">
+            <div class="pt-2">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th colspan="3">Project Name</th>
+                            <th colspan="3">Project Name: THIS IS THE PROJECT NAME DEMO</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Date of booking : </th>
-                            <td>Customer ID No :</td>
-                            <td>Enquiry No :</td>
-                        </tr>
-
-                        <tr>
-                            <td colspan="3" class="table-head">PERSONAL INFORMATION ( to be filled in block letters)
-                            </td>
+                            <td>Date of booking : 15/09/23 </th>
+                            <td>Customer ID No : CUST123</td>
+                            <td>Enquiry No : ENQ123</td>
                         </tr>
 
                     </tbody>
                 </table>
+
+                <table class="table">
+                    <tr>
+                        <td colspan="4" class="table-head">PERSONAL INFORMATION ( to be filled in block letters)
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td colspan="2">
+                            <p class="m-0">Name of the sole/first applicant</p><br>
+                            <p class="m-0">Mr. / Mrs. / Ms. <span class="name">John Wick </span> </p>
+
+                            <div class="text-center py-4">
+                                <img class="img-fluid demo-photo" src="assets/images/demo-photo.jpg" alt="">
+                            </div>
+                            </th>
+                        <td colspan="2">
+                            <p class="m-0">Name of the sole/first applicant</p><br>
+                            <p class="m-0">Mr. / Mrs. / Ms. <span class="name">Captain Amerrica</span> </p>
+                            <div class="text-center py-4">
+                                <img class="img-fluid demo-photo" src="assets/images/demo-photo.jpg" alt="">
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="personal-col">Date of Birth: </th>
+                        <td>05/10/1999</td>
+                        <td class="personal-col">Date of Birth: </th>
+                        <td>05/10/1999</td>
+                    </tr>
+
+                    <tr>
+                        <td class="personal-col">Son / Daughter/ Wife of: </th>
+                        <td>Sharon</td>
+                        <td class="personal-col">Son / Daughter/ Wife of: </th>
+                        <td>Sharon</td>
+                    </tr>
+
+                    <tr>
+                        <td class="personal-col">Permanent Account No: </th>
+                        <td>AXIS123456</td>
+                        <td class="personal-col">Permanent Account No: </th>
+                        <td>AXIS123456</td>
+                    </tr>
+
+                    <tr>
+                        <td class="personal-col">Aadhar No:</th>
+                        <td>ADR889</td>
+                        <td class="personal-col">Aadhar No:</th>
+                        <td>ADR889</td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">Email Id: <span> abc@gmail.com</span></th>
+                        <td colspan="2">Email Id: <span> abc@gmail.com</span> </th>
+                    </tr>
+
+                    <tr>
+                        <td colspan="4">
+                            <div class="row">
+                                <div class="col-lg-4">Correspondence Address:</div>
+                                <div class="col-lg-8">
+                                    <address>
+                                        Cecilia Chapman
+                                        711-2880 Nulla St.
+                                        Mankato Mississippi 96522
+                                        (257) 563-7401
+                                    </address>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="4">
+                            <div class="row">
+                                <div class="col-lg-4">Permanent Address:</div>
+                                <div class="col-lg-8">
+                                    <address>
+                                        Cecilia Chapman
+                                        711-2880 Nulla St.
+                                        Mankato Mississippi 96522
+                                        (257) 563-7401
+                                    </address>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="4">
+                            <div class="row">
+                                <div class="col-lg-4">Professional details:</div>
+                                <div class="col-lg-8">
+                                    <address>
+                                        Cecilia Chapman
+                                        711-2880 Nulla St.
+                                        Mankato Mississippi 96522
+                                        (257) 563-7401
+                                    </address>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="4">
+                            <div class="row">
+                                <div class="col-lg-4">Office Address:</div>
+                                <div class="col-lg-8">
+                                    <address>
+                                        Cecilia Chapman
+                                        711-2880 Nulla St.
+                                        Mankato Mississippi 96522
+                                        (257) 563-7401
+                                    </address>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td colspan="2">Phone No (Residency) : <span>+91 123456789</span> </th>
+                        <td colspan="2">Phone No (Mobile) : <span>+91 123456789</span></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">Phone No (Office) : <span>+91 123456789</span></th>
+                        <td colspan="2">Whatsapp No (Office) : <span>+91 123456789</span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <p class="d-flex align-items-center">
+                                How did you come to know about this project?
+                                <input type="checkbox" class="mx-2">Advertisement
+                                <input type="checkbox" class="mx-2">Company website
+                                <input type="checkbox" class="mx-2">Referral
+                            </p>
+                            <p class="d-flex align-items-center">
+                                Existing Talenmark Customer?
+                                <input type="checkbox" class="mx-2">Yes
+                                <input type="checkbox" class="mx-2">No If Yes, specify name of project you own in <input
+                                    type="text">
+
+                            </p>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+
+                <table class="table">
+                    <tr>
+                        <td colspan="4" class="table-head family-details">FAMILY DETAILS
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="family-col" colspan="2">
+                            Name of spouse: <span>Demo Name</span>
+                        </td>
+                        <td>
+                            Date of birth: <span>05/2/2000</span>
+                        </td>
+                        <td>
+                            Sex <input type="checkbox" class="ms-2" name="" id=""> Male <input type="checkbox" name="" id=""> Female
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="family-col" colspan="2">
+                            Name of Child:
+                            <ol>
+                                <li>Mujeeb</li>
+                                <li>Sharon</li>
+                                <li>Murshid</li>
+                            </ol>
+                        </td>
+                        <td>
+                            <ul>
+                                <li class="not-display">
+
+                                </li>
+                                <li>Date of Birth: <span>05/2/2000</span></li>
+                                <li>Date of Birth: <span>05/2/2000</span></li>
+                                <li>Date of Birth: <span>05/2/2000</span></li>
+
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <li class="not-display">
+
+                                </li>
+                                <li> Sex <input class="ms-2" type="checkbox" name="" id=""> Male <input type="checkbox" name=""
+                                        id=""> Female</li>
+                                <li> Sex <input class="ms-2" type="checkbox" name="" id=""> Male <input type="checkbox" name=""
+                                        id=""> Female</li>
+                                <li> Sex <input class="ms-2" type="checkbox" name="" id=""> Male <input type="checkbox" name=""
+                                        id=""> Female</li>
+
+                            </ul>
+
+
+                        </td>
+                    </tr>
+
+                </table>
+
+                <table class="table">
+
+                    <tr>
+                        <td colspan="4" class="table-head family-details">UNIT DETAILS 
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Unit Alloted : <span></span>
+                        </td>
+                        <td>
+                            Type : <span></span>
+                        </td>
+                        <td>
+                            BHK <span></span>
+                        </td>
+                        <td>
+                            Floor: <span></span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">Built up area : <span></span></td>
+                        <td colspan="2">Carpet area : <span></span></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">Unit cost : <span></span></td>
+                        <td colspan="2">Registration Fee : <span></span></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">GST : <span></span> </td>
+                        <td colspan="2">Total unit cost : <span></span> </td>
+                    </tr>
+
+                </table>
+
+                <table class="table">
+
+                    <tr>
+                        <td colspan="3" class="table-head family-details">SOURCE OF BOOKING
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>
+                                <p>Direct <input type="checkbox" name="" id=""></p>
+                                <p>Name & designation:</p>
+                                <p>AMBANI</p>
+                                <p>Doctor</p>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div>
+                                <p>Referral <input type="checkbox" name="" id=""></p>
+                                <p>Name & designation:</p>
+                                <p>AMBANI</p>
+                                <p>Doctor</p>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div>
+                                <p>Agent <input type="checkbox" name="" id=""></p>
+                                <p>Name & designation:</p>
+                                <p>AMBANI</p>
+                                <p>Doctor</p>
+                            </div>
+                        </td>
+
+                    </tr>
+
+                </table>
+
+                <table class="table">
+
+                    <tr>
+                        <td colspan="3" class="table-head family-details">BOOKING PAYMENT DETAILS
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <div>
+                                <p>Amount of Rs <input type="text" name="" id=""> (in words Rupees <input type="text"
+                                        name="" id="">)</p>
+                                <p>favoring M/S. Talenmark Properties LLP by Cheque/DD <input type="text" name="" id="">
+                                    dated <input type="text" name="" id=""></p>
+                                <p>bank <input type="text" name="" id="">branch <input type="text" name="" id=""></p>
+                                <p>Mode of Payment/Source <input type="checkbox" name="" id=""> Own funds <input
+                                        type="checkbox" name="" id=""> Home loan</p>
+                                <p>Purpose of purchase <input type="checkbox" name="" id=""> Own use <input
+                                        type="checkbox" name="" id=""> Investment <input type="checkbox" name="" id="">
+                                    Rent <input type="checkbox" name="" id=""> Others</p>
+                                <p>Would you be interested in other projects by Talencorporation Pvt Ltd.<input
+                                        type="checkbox" name="" id=""> Yes <input type="checkbox" name="" id=""> No</p>
+                                <p>If yes,</p>
+                                <p>Nature of project <input type="checkbox" name="" id=""> Residential <input
+                                        type="checkbox" name="" id=""> Commercial <input type="checkbox" name=""
+                                        id="">Resort <input type="checkbox" name="" id="">All </p>
+                                <p>Location :</p>
+                            </div>
+                        </td>
+
+
+                    </tr>
+
+                </table>
+
+                <table class="table">
+                    <tr>
+                        <td colspan="2" class="table-head family-details">TERMS & CONDITIONS
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="px-3">
+                                <ul>
+                                    <li>
+                                        On allotment booking advance of 10% of the cost of the villa is to paid by the
+                                        purchaser, if the purchaser cancels the booking,
+                                        a service charge of 10% will be deducted and the balance amount shall be paid to
+                                        the purchaser.
+                                    </li>
+                                    <li>
+                                        Once allotted and application signed, the prices will be firm.
+                                    </li>
+                                    <li>
+                                        All payments should be by Local cheque/DD/Bank transfer favouring M/S. Talenmark
+                                        Properties LLP
+                                    </li>
+                                    <li>
+                                        Possesion shall be given to the customer on settling of all dues to the company.
+                                    </li>
+                                    <li>
+                                        Membership in the Talenvista Owner's Association is compulsory and not optional
+                                        and the maintenance charges are payable by
+                                        the owners.
+                                    </li>
+                                    <li>
+                                        It is a time bound project. In case, payments are not made as per the agreement,
+                                        the developer reserves the right to cancel the
+                                        allotment after notifying the client
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="px-3">
+                                <h6>Declaration</h6>
+                                <p>I/We, the undersigned applicant (sole/first and Co/second applicant), do hereby
+                                    declare that the above mentioned particulars/
+                                    information given by me/us are irrevocable, true and correct to my/our knowledge and
+                                    no material fact has been concealed
+                                    therefrom. I/We have gone through the terms and conditions written in this form and
+                                    accept the same. I/We accept the terms
+                                    and conditions mentioned above and agree to remit further installments as per the
+                                    standard schedule of payments.</p>
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="signature">
+                                <p>Signature of first applican</p>
+                                <img class="img-fluid" src="assets/images/signature.png" alt="">
+
+                                <p>Date: </p>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="signature">
+                                <p>Signature of first applican</p>
+                                <img class="img-fluid" src="assets/images/signature.png" alt="">
+                                <p>Date: </p>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+
             </div>
 
         </div>
@@ -135,13 +665,34 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script>
+
+        const headerTemplate = `
+    <div class="page-header page-border">
+        <!-- Header content goes here -->
+    </div>
+`;
+
+        const footerTemplate = `
+    <div class="page-footer page-border">
+        <!-- Footer content goes here -->
+    </div>
+`;
+
         document.getElementById('downloadButton').addEventListener('click', function () {
             const divContent = document.getElementById('content');
             const options = {
                 filename: 'content.pdf',
                 image: { type: 'jpeg', quality: 0.98 },
                 html2canvas: { scale: 2 },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait', margin: [10, 10] }
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait', margin: [10, 10] },
+                header: {
+                    height: '30mm',
+                    contents: headerTemplate,
+                },
+                footer: {
+                    height: '30mm',
+                    contents: footerTemplate,
+                },
             };
             html2pdf().from(divContent).set(options).save();
 
