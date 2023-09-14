@@ -7,6 +7,9 @@
     <title>Talenmark</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -158,16 +161,86 @@
 
                             <div class="col-lg-12 pb-lg-5">
                                 <label for="name">How did you come to know about this project?:</label>
-                                <div>
-                                    <p>Advertisement</p>
-                                    <input type="checkbox" required>
-                                    <p>Company website</p>
-                                    <input type="checkbox" required>
-                                    <p>Referral</p>
-                                    <input type="checkbox" required>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="d-flex">
+                                            <p class="m-0 pe-3">
+                                                Advertisement
+                                            </p>
+                                            <input type="checkbox">
+                                        </div>
+
+                                        </p>
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        <div class="d-flex">
+                                            <p class="m-0 pe-3">
+                                                Company website
+                                            </p>
+                                            <input type="checkbox">
+                                        </div>
+
+                                        </p>
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        <div class="d-flex">
+                                            <p class="m-0 pe-3">
+                                                Referral
+                                            </p>
+                                            <input type="checkbox">
+                                        </div>
+
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
 
+                            <div class="col-lg-12 pb-lg-5">
+                                <label for="name">Existing Talenmark Customer?:</label>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="d-flex">
+                                            <p class="m-0 pe-3">
+                                                Yes
+                                            </p>
+                                            <input type="checkbox">
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        <div class="d-flex">
+                                            <p class="m-0 pe-3">
+                                                Company website
+                                            </p>
+                                            <input type="checkbox">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        <div class="d-flex">
+                                            <p class="m-0 pe-3">
+                                                No If Yes, specify name of project you own in
+                                            </p>
+                                            <input type="checkbox">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <input type="text" required>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                            <!-- 
                             <div class="col-lg-6 pb-lg-5">
                                 <label for="name">Existing Talenmark Customer?:</label>
                                 <div>
@@ -179,7 +252,7 @@
                                     <input type="checkbox" required>
                                     <input type="text" required>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="button-container button-box">
                             <button class="button prev" onclick="prevStep(2)">Previous</button>
@@ -197,25 +270,84 @@
                                 <input type="text" id="name" name="name" required>
                             </div>
 
-                            <div class="col-lg-6 pb-lg-5">
+                            <div class="col-lg-3 pb-lg-5">
                                 <label for="name">Date of Birth:</label>
                                 <input type="date" id="name" name="name" required>
                             </div>
 
-                            <div class="col-lg-6 pb-lg-5">
+
+
+                            <div class="col-lg-3 pb-lg-5">
                                 <label for="name">Sex:</label>
+
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="d-flex">
+                                            <p class="m-0 pe-3">
+                                                Fale
+                                            </p>
+                                            <input type="checkbox">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="d-flex">
+                                            <p class="m-0 pe-3">
+                                                Female
+                                            </p>
+                                            <input type="checkbox">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- 
                                 <label for="">Male</label>
                                 <input type="checkbox" id="name" name="name" required>
                                 <label for="">Female</label>
-                                <input type="checkbox" id="name" name="name" required>
+                                <input type="checkbox" id="name" name="name" required> -->
                             </div>
 
-                            <div class="col-lg-6 pb-lg-5">
-                                <label for="name">Name of Child::</label>
-                                <input type="text" id="name" name="name" required>
+                            <div class="row">
+                                <div class="form-add-btn-box">
+                                    <button id="form-add-btn">
+                                        Add
+                                        <i class="fa fa-solid fa-plus fa-lg ps-3"></i>
+                                    </button>
+
+                                </div>
                             </div>
 
-
+                            <div class="row" id="add-form-content">
+                                <div class="col-lg-6 pb-lg-5">
+                                    <label for="name">Name of Child:</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                <div class="col-lg-3 pb-lg-5">
+                                    <label for="name">Date of Birth:</label>
+                                    <input type="date" id="name" name="name" required>
+                                </div>
+                                <div class="col-lg-3 pb-lg-5">
+                                    <label for="name">Sex:</label>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="d-flex">
+                                                <p class="m-0 pe-3">
+                                                    Fale
+                                                </p>
+                                                <input type="checkbox">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="d-flex">
+                                                <p class="m-0 pe-3">
+                                                    Female
+                                                </p>
+                                                <input type="checkbox">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="button-container button-box">
                             <button class="button prev" onclick="prevStep(3)">Previous</button>
@@ -289,36 +421,37 @@
                     <div class="step" id="step-5">
                         <h5>SOURCE OF BOOKING</h5>
                         <div class="row">
-                            <div class="col-lg-6 pb-lg-5">
-                                <label for="name">Unit Alloted:</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
+                            <div class="col-lg-4 pb-lg-5">
+                                <div class="d-flex align-items-center">
+                                    <label for="name" class="pe-3">Direct:</label>
+                                    <input type="checkbox" id="name" name="name" required>
+                                </div>
 
-                            <div class="col-lg-6 pb-lg-5">
-                                <label for="name">Direct:</label>
-                                <input type="checkbox" id="name" name="name" required>
 
                                 <label for="">Name & Designation</label>
-                                <input type="text" name="" id="">
+                                <textarea name="" id="" cols="30" rows="2"></textarea>
                             </div>
 
-                            <div class="col-lg-6 pb-lg-5">
-                                <label for="name">Referral:</label>
-                                <input type="checkbox" id="name" name="name" required>
+
+                            <div class="col-lg-4 pb-lg-5">
+                                <div class="d-flex align-items-center">
+                                    <label for="name" class="pe-3">Referral:</label>
+                                    <input type="checkbox" id="name" name="name" required>
+                                </div>
+
 
                                 <label for="">Name & Designation</label>
-                                <input type="text" name="" id="">
+                                <textarea name="" id="" cols="30" rows="2"></textarea>
                             </div>
 
-                            <div class="col-lg-6 pb-lg-5">
-                                <label for="name">Agent:</label>
-                                <input type="checkbox" id="name" name="name" required>
-
+                            <div class="col-lg-4 pb-lg-5">
+                                <div class="d-flex align-items-center">
+                                    <label for="name" class="pe-3">Agent:</label>
+                                    <input type="checkbox" id="name" name="name" required>
+                                </div>
                                 <label for="">Name & Designation</label>
-                                <input type="text" name="" id="">
+                                <textarea name="" id="" cols="30" rows="2"></textarea>
                             </div>
-
-
                         </div>
                         <div class="button-container button-box">
                             <button class="button prev" onclick="prevStep(5)">Previous</button>
@@ -331,12 +464,12 @@
                         <div class="row">
                             <div class="col-lg-6 pb-lg-5">
                                 <label for="name">Bank:</label>
-                                <input type="date" id="name" name="name" required>
+                                <input type="text" id="name" name="name" required>
                             </div>
 
                             <div class="col-lg-6 pb-lg-5">
-                                <label for="name">Branck:</label>
-                                <input type="date" id="name" name="name" required>
+                                <label for="name">Branch:</label>
+                                <input type="text" id="name" name="name" required>
                             </div>
                             <div class="col-lg-6 pb-lg-5">
                                 <label for="name">Date:</label>
@@ -350,12 +483,12 @@
 
                             <div class="col-lg-6 pb-lg-5">
                                 <label for="name">In words:</label>
-                                <input type="number" id="name" name="name" required>
+                                <input type="text" id="name" name="name" required>
                             </div>
 
                             <div class="col-lg-6 pb-lg-5">
                                 <label for="name">Cheque/DD:</label>
-                                <input type="number" id="name" name="name" required>
+                                <input type="text" id="name" name="name" required>
                             </div>
                         </div>
                         <div class="button-container button-box">
@@ -414,20 +547,85 @@
 
                         <div class="row">
                             <div class="col-lg-6">
-                                <label for="name">Signature of first applicant:</label>
-                                <input type="file" id="name" name="name" required>
+                                <div class="signature-upload-box">
+                                    <label for="file-input">
+                                        <img class="img-fluid upload-icon" src="assets/images/upload.png" alt="">
+                                        <span>Signature of first applicant</span>
+                                    </label>
+                                    <input type="file" id="file-input" style="display: none;">
 
-                                <label for="name">Date:</label>
-                                <input type="date" id="name" name="name" required>
-
+                                    <div class="d-flex flex-column align-items-center position-relative">
+                                        <button id="change-button" style="display: none;"><i
+                                            class="fa-solid fa-pen"></i></button>
+                                    <div id="selected-image"></div>
+                                    </div>
+                                </div>
                             </div>
+
                             <div class="col-lg-6">
-                                <label for="name">Signature of first applicant:</label>
-                                <input type="file" id="name" name="name" required>
+                                <div class="signature-upload-box">
+                                    <label for="file-input">
+                                        <img class="img-fluid upload-icon" src="assets/images/upload.png" alt="">
+                                        <span>Signature of second applicant</span>
+                                    </label>
+                                    <input type="file" id="file-input" style="display: none;">
 
-                                <label for="name">Date:</label>
-                                <input type="date" id="name" name="name" required>
+                                    <div class="d-flex flex-column align-items-center position-relative">
+                                        <button id="change-button" style="display: none;"><i
+                                            class="fa-solid fa-pen"></i></button>
+                                    <div id="selected-image"></div>
+                                    </div>
+                                </div>
                             </div>
+
+                            <script>
+                                const fileInput = document.getElementById("file-input");
+                                const uploadLabel = document.querySelector('.signature-upload-box label');
+                                const selectedImage = document.getElementById("selected-image");
+                                const changeButton = document.getElementById("change-button");
+
+                                fileInput.addEventListener("change", function () {
+                                    if (fileInput.files.length > 0) {
+                                        const file = fileInput.files[0];
+                                        const reader = new FileReader();
+
+                                        reader.onload = function (event) {
+                                            const img = document.createElement("img");
+                                            img.src = event.target.result;
+                                            img.classList.add("img-fluid");
+
+                                            // Replace the existing image with the uploaded image
+                                            uploadLabel.innerHTML = ""; // Clear the label content
+                                            uploadLabel.appendChild(img); // Append the uploaded image
+
+                                            // Show the "Change" button and hide the label (image)
+                                            changeButton.style.display = 'block';
+                                            uploadLabel.style.display = 'none';
+
+                                            // Display the uploaded image below the button
+                                            selectedImage.innerHTML = "";
+                                            selectedImage.appendChild(img);
+                                        };
+
+                                        reader.readAsDataURL(file);
+                                    } else {
+                                        // Clear the label content and show the "Upload Signature" text
+                                        uploadLabel.innerHTML = '<img class="img-fluid" src="assets/images/upload.png" alt=""><span>Upload Signature</span>';
+                                        uploadLabel.style.display = 'block';
+
+                                        // Hide the "Change" button and clear the selected image
+                                        changeButton.style.display = 'none';
+                                        selectedImage.innerHTML = "";
+                                    }
+                                });
+
+                                // Add an event listener to the "Change" button
+                                changeButton.addEventListener("click", function () {
+                                    // Trigger a click event on the hidden file input to allow the user to choose a new file
+                                    fileInput.click();
+                                });
+                            </script>
+
                         </div>
 
                         <div class="button-container button-box">
@@ -452,27 +650,7 @@
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-        let currentStep = 1;
-
-        function nextStep(step) {
-            document.getElementById(`step-${step}`).classList.remove('active');
-            document.getElementById(`step-${step + 1}`).classList.add('active');
-            currentStep = step + 1;
-        }
-
-        function prevStep(step) {
-            document.getElementById(`step-${step}`).classList.remove('active');
-            document.getElementById(`step-${step - 1}`).classList.add('active');
-            currentStep = step - 1;
-        }
-
-        document.getElementById('wizard-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            alert('Form submitted successfully!');
-        });
-    </script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>

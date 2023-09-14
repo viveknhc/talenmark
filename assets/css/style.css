@@ -23,7 +23,7 @@ section {
 #wizard-form {
     border-radius: 15px;
     padding: 50px;
-    box-shadow: 0px 0px 4px 0px rgba(234, 29, 37, 0.25);
+    box-shadow: 0px 0px 4px 0px rgb(0 0 0 / 25%);
 
 }
 
@@ -38,13 +38,19 @@ section {
     padding: 0px 0px 8px 0px;
 }
 
-#wizard-form input {
+#wizard-form input[type=text],input[type=number],input[type=email],input[type=date] {
     width: 100%;
     border-radius: 15px;
     padding: 10px 20px;
     background-color: #F7F7F7;
     border: none;
 }
+
+#wizard-form input[type=checkbox]{
+    transform: scale(1.5);
+}
+
+
 
 #wizard-form textarea{
     width: 100%;
@@ -96,9 +102,74 @@ section {
     font-weight: 700;
 }
 
+#wizard-form .form-add-btn-box{
+    padding: 29px 0;
+    display: flex;
+    justify-content: end;
+}
+
+#wizard-form .form-add-btn-box button{
+    border: 1px solid red;
+    border-radius: 4px;
+    padding: 4px 14px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+#wizard-form .form-add-btn-box button i{
+   color: #ff0000;
+}
+
+#wizard-form .signature-upload-box{
+    padding: 10px;
+    border-radius: 20px;
+}
+
+#wizard-form .signature-upload-box label{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#wizard-form .signature-upload-box span{
+    font-size: 15px;
+    padding-top: 10px;
+    font-weight: 500;
+}
+
+#wizard-form .signature-upload-box .upload-icon{
+    padding: 10px;
+    border: 1px dotted red;
+    border-radius: 14px;
+    max-width: 100px;
+    cursor: pointer;
+}
+
+#wizard-form .signature-upload-box #selected-image{
+    max-width: 195px;
+    border-radius: 15px;
+}
 
 
 
+#wizard-form .signature-upload-box #file-input{
+    display: none;
+}
+
+#change-button{
+    border: none;
+    background-color: #fff;
+    color: #ff0000;
+    display: block;
+    position: absolute;
+    top: -17px;
+    left: 66%;
+    padding: 3px 6px;
+    border-radius: 100%;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
 
 .step {
     display: none;
