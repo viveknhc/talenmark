@@ -70,23 +70,23 @@
                                 <label for="name">Name of the sole/first applicant Mr. / Mrs. / Ms.:</label>
                                 <input type="text" id="name" name="name" required>
 
-                                <div class="signature-upload-box file-upload">
-                                    <label for="file-input-1">
+                                <div class="profil-img-box-1 file-upload">
+                                    <label for="profile-img-upload-1">
                                         <img class="img-fluid" src="assets/images/upload.png" alt="">
                                         <span>Upload Photo</span>
                                     </label>
-                                    <input type="file" id="file-input-1" style="display: none;">
+                                    <input type="file" id="profile-img-upload-1" style="display: none;">
                                     <div class="selected-img-box">
-                                        <div id="selected-image-1"></div>
-                                        <button id="change-button-1" style="display: none;"><i
+                                        <div id="profile-select-img"></div>
+                                        <button id="profileimg-btn" style="display: none;"><i
                                                 class="fa fa-pen"></i></button>
                                     </div>
-    
                                 </div>
+
                             </div>
 
                             <div class="col-lg-6 pb-lg-5">
-                                
+
                                 <label for="name">Name of the Co/second applican Mr. / Mrs. / Ms.:</label>
                                 <input type="text" id="name" name="name" required>
                                 <div class="another-upload-box file-upload">
@@ -106,7 +106,7 @@
 
 
 
-                           
+
 
 
                             <div class="col-lg-6 pb-lg-5">
@@ -697,6 +697,50 @@
                                 changeButton2.addEventListener("click", function () {
                                     fileInput2.click();
                                 });
+
+
+
+                                const profile_img1 = document.getElementById("profile-img-upload-1");
+                                const profile_imgLabel1 = document.querySelector('.profil-img-box-1 label');
+                                const profile_selectedImage1 = document.getElementById("profile-select-img");
+                                const profile_changeButton1 = document.getElementById("profileimg-btn");
+
+                                profile_img1.addEventListener("change", function () {
+                                    if (profile_img1.files.length > 0) {
+                                        const file = profile_img1.files[0];
+                                        const reader = new FileReader();
+
+                                        reader.onload = function (event) {
+                                            const img = document.createElement("img");
+                                            img.src = event.target.result;
+                                            img.classList.add("img-fluid");
+
+                                            // Replace the existing image with the uploaded image
+                                            profile_imgLabel1.innerHTML = ""; // Clear the label content
+                                            profile_imgLabel1.appendChild(img); // Append the uploaded image
+
+                                            // Show the "Change" button and hide the label (image)
+                                            profile_changeButton1.style.display = 'block';
+                                            profile_imgLabel1.style.display = 'none';
+
+                                            // Display the uploaded image below the button
+                                            profile_selectedImage1.innerHTML = "";
+                                            profile_selectedImage1.appendChild(img);
+                                        };
+
+                                        reader.readAsDataURL(file);
+                                    } else {
+                                        profile_imgLabel1.innerHTML = '<img class="img-fluid" src="assets/images/upload.png" alt=""><span>Upload Signature</span>';
+                                        profile_imgLabel1.style.display = 'block';
+                                        profile_changeButton1.style.display = 'none';
+                                        profile_selectedImage1.innerHTML = "";
+                                    }
+                                });
+
+                                profile_changeButton1.addEventListener("click", function () {
+                                    profile_img1.click();
+                                });
+
                             </script>
 
                         </div>
@@ -714,7 +758,7 @@
                             <img src="" alt="">
                             <p>Thank you for completing!</p>
                         </div>
-                        
+
                         <div class="button-container button-box">
                             <button class="button prev" onclick="prevStep(8)">Previous</button>
                             <button class="button submit" type="submit">Submit</button>
