@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .file-upload {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        .file-upload #file-input {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="signature-upload-box file-upload">
+        <label for="file-input-1">
+            <img class="img-fluid" src="assets/images/upload.png" alt="">
+            <span>Upload Signature</span>
+        </label>
+        <input type="file" id="file-input-1" style="display: none;">
+        <div id="selected-image-1"></div>
+        <button id="change-button-1" style="display: none;">Change</button>
+    </div>
+
+    <div class="another-upload-box file-upload">
+        <label for="file-input-2">
+            <img class="img-fluid" src="assets/images/upload.png" alt="">
+            <span>Upload Another File</span>
+        </label>
+        <input type="file" id="file-input-2" style="display: none;">
+        <div id="selected-image-2"></div>
+        <button id="change-button-2" style="display: none;">Change</button>
+    </div>
+
+    <script>
+        // Define separate event listeners and functions for each file upload element (1 and 2)
+        const fileInput3 = document.getElementById("file-input-3");
+        const uploadLabel3 = document.querySelector('.signature-upload-box label');
+        const selectedImage3 = document.getElementById("selected-image-3");
+        const changeButton3 = document.getElementById("change-button-3");
+
+        const fileInput4 = document.getElementById("file-input-4");
+        const uploadLabel4 = document.querySelector('.another-upload-box label');
+        const selectedImage4 = document.getElementById("selected-image-4");
+        const changeButton4 = document.getElementById("change-button-4");
+
+        fileInput3.addEventListener("change", function() {
+            if (fileInput3.files.length > 0) {
+                const file = fileInput3.files[0];
+                const reader = new FileReader();
+
+                reader.onload = function(event) {
+                    const img = document.createElement("img");
+                    img.src = event.target.result;
+                    img.classList.add("img-fluid");
+
+                    // Replace the existing image with the uploaded image
+                    uploadLabel3.innerHTML = ""; // Clear the label content
+                    uploadLabel3.appendChild(img); // Append the uploaded image
+
+                    // Show the "Change" button and hide the label (image)
+                    changeButton3.style.display = 'block';
+                    uploadLabel3.style.display = 'none';
+
+                    // Display the uploaded image below the button
+                    selectedImage3.innerHTML = "";
+                    selectedImage3.appendChild(img);
+                };
+
+                reader.readAsDataURL(file);
+            } else {
+                // Clear the label content and show the "Upload Signature" text
+                uploadLabel3.innerHTML = '<img class="img-fluid" src="assets/images/upload.png" alt=""><span>Upload Signature</span>';
+                uploadLabel3.style.display = 'block';
+
+                // Hide the "Change" button and clear the selected image
+                changeButton3.style.display = 'none';
+                selectedImage3.innerHTML = "";
+            }
+        });
+
+        changeButton3.addEventListener("click", function() {
+            // Trigger a click event on the hidden file input to allow the user to choose a new file
+            fileInput3.click();
+        });
+
+        fileInput4.addEventListener("change", function() {
+            if (fileInput4.files.length > 0) {
+                const file = fileInput4.files[0];
+                const reader = new FileReader();
+
+                reader.onload = function(event) {
+                    const img = document.createElement("img");
+                    img.src = event.target.result;
+                    img.classList.add("img-fluid");
+
+                    // Replace the existing image with the uploaded image
+                    uploadLabel4.innerHTML = ""; // Clear the label content
+                    uploadLabel4.appendChild(img); // Append the uploaded image
+
+                    // Show the "Change" button and hide the label (image)
+                    changeButton4.style.display = 'block';
+                    uploadLabel4.style.display = 'none';
+
+                    // Display the uploaded image below the button
+                    selectedImage4.innerHTML = "";
+                    selectedImage4.appendChild(img);
+                };
+
+                reader.readAsDataURL(file);
+            } else {
+                // Clear the label content and show the "Upload Another File" text
+                uploadLabel4.innerHTML = '<img class="img-fluid" src="assets/images/upload.png" alt=""><span>Upload Another File</span>';
+                uploadLabel4.style.display = 'block';
+
+                // Hide the "Change" button and clear the selected image
+                changeButton4.style.display = 'none';
+                selectedImage4.innerHTML = "";
+            }
+        });
+
+        changeButton4.addEventListener("click", function() {
+            // Trigger a click event on the hidden file input to allow the user to choose a new file
+            fileInput4.click();
+        });
+    </script>
+</body>
+</html>

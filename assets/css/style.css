@@ -2,17 +2,29 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
 body {
     overflow-x: hidden;
+    font-family: 'Montserrat', sans-serif;
 }
 
 section {
     padding: 50px 0px;
 }
 
-
+.logo-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo-box img{
+    max-width: 50px;
+}
+.logo-box h3{
+    color: #000 !important;
+}
 
 .form-section h3 {
     padding: 20px 0;
@@ -31,6 +43,8 @@ section {
     padding: 0px 0px 20px 0;
     text-align: center;
     text-transform: uppercase;
+    font-weight: 700;
+
 }
 
 #wizard-form label {
@@ -115,6 +129,8 @@ section {
     background-color: #fff;
     display: flex;
     align-items: center;
+    color: red;
+    font-weight: 700;
 }
 
 #wizard-form .form-add-btn-box button i{
@@ -126,14 +142,14 @@ section {
     border-radius: 20px;
 }
 
-#wizard-form .signature-upload-box label{
+#wizard-form .file-upload label{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-#wizard-form .signature-upload-box span{
+#wizard-form .file-upload span{
     font-size: 15px;
     padding-top: 10px;
     font-weight: 500;
@@ -177,4 +193,36 @@ section {
 
 .step.active {
     display: block;
+}
+
+.selected-img-box button{
+    border: 1px solid #fff;
+    background-color: #cac7c7;
+    position: absolute;
+    top: -18px;
+    right: lef;
+    /* left: -8px; */
+    border-radius: 100%;
+    padding: 6px 9px;
+}
+
+.selected-img-box img{
+    max-width: 200px;
+    border-radius: 15px
+}
+
+.selected-img-box{
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.file-upload label {
+    display: flex !important;
+}
+
+.final-step p{
+    font-size: 18px;
+    color: #000;
+    font-weight: 600;
 }
