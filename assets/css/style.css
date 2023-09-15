@@ -58,6 +58,7 @@ section {
     padding: 10px 20px;
     background-color: #F7F7F7;
     border: none;
+    border: 1px #a5a5a5 solid;
 }
 
 #wizard-form input[type=checkbox]{
@@ -72,6 +73,7 @@ section {
     padding: 10px 20px;
     background-color: #F7F7F7;
     border: none;
+    border: 1px #a5a5a5 solid;
 }
 
 #wizard-form textarea:focus{
