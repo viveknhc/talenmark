@@ -70,10 +70,10 @@
                                 <label for="name">Name of the sole/first applicant Mr. / Mrs. / Ms.:</label>
                                 <input type="text" id="name" name="name" required>
 
-                                <div class="profil-img-box-1 file-upload">
+                                <div class="profil-img-box-1 file-upload pt-5">
                                     <label for="profile-img-upload-1">
                                         <img class="img-fluid" src="assets/images/upload.png" alt="">
-                                        <span>Upload Photo</span>
+                                        <span>Upload Profile Photo</span>
                                     </label>
                                     <input type="file" id="profile-img-upload-1" style="display: none;">
                                     <div class="selected-img-box">
@@ -83,24 +83,277 @@
                                     </div>
                                 </div>
 
+
+                                <div class="aadhar-file-upload1 file-upload py-5">
+                                    <label for="aadhar-file-upload-input1">
+                                        <img class="img-fluid" src="assets/images/upload.png" alt="">
+                                        <span>Upload Aadhaar</span>
+                                    </label>
+                                    <input type="file" id="aadhar-file-upload-input1" style="display: none;">
+                                    <div class="selected-img-box">
+                                        <div id="aadhar-selected-file1"></div>
+                                        <button id="aadhar-file-change-btn1" style="display: none;"><i
+                                                class="fa fa-pen"></i></button>
+                                    </div>
+                                </div>
+
+
+                                <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.8.335/pdf.min.js"></script>
+
+                                <script>
+                                    const aadharFileInput1 = document.getElementById("aadhar-file-upload-input1");
+                                    const aadharFileLabel1 = document.querySelector('.aadhar-file-upload1 label');
+                                    const aadharSelectedFile1 = document.getElementById("aadhar-selected-file1");
+                                    const aadharFileChangeBtn1 = document.getElementById("aadhar-file-change-btn1");
+
+                                    aadharFileInput1.addEventListener("change", function () {
+                                        if (aadharFileInput1.files.length > 0) {
+                                            const file = aadharFileInput1.files[0];
+
+                                            if (file.type === 'application/pdf') {
+                                                // Handle PDF file
+                                                const reader = new FileReader();
+
+                                                reader.onload = function (event) {
+                                                    const pdfData = new Uint8Array(event.target.result);
+                                                    pdfjsLib.getDocument({ data: pdfData }).promise
+                                                        .then(function (pdfDoc) {
+                                                            // Display the first page of the PDF as an image
+                                                            return pdfDoc.getPage(1);
+                                                        })
+                                                        .then(function (page) {
+                                                            const canvas = document.createElement("canvas");
+                                                            const context = canvas.getContext("2d");
+                                                            const viewport = page.getViewport({ scale: 1 });
+                                                            canvas.width = viewport.width;
+                                                            canvas.height = viewport.height;
+
+                                                            const renderContext = {
+                                                                canvasContext: context,
+                                                                viewport: viewport,
+                                                            };
+
+                                                            page.render(renderContext).promise
+                                                                .then(function () {
+                                                                    const pdfImage = document.createElement("img");
+                                                                    pdfImage.src = canvas.toDataURL("image/png");
+                                                                    pdfImage.classList.add("img-fluid");
+
+                                                                    // Replace the existing image with the PDF image
+                                                                    aadharFileLabel1.innerHTML = ""; // Clear the label content
+                                                                    aadharFileLabel1.appendChild(pdfImage); // Append the PDF image
+
+                                                                    // Show the "Change" button and hide the label (image)
+                                                                    aadharFileChangeBtn1.style.display = 'block';
+                                                                    aadharFileLabel1.style.display = 'none';
+
+                                                                    // Display the uploaded PDF image below the button
+                                                                    aadharSelectedFile1.innerHTML = "";
+                                                                    aadharSelectedFile1.appendChild(pdfImage);
+                                                                });
+                                                        });
+                                                };
+
+                                                reader.readAsArrayBuffer(file);
+                                            } else {
+                                                // Handle non-PDF files (e.g., images)
+                                                const img = document.createElement("img");
+                                                img.src = URL.createObjectURL(file);
+                                                img.classList.add("img-fluid");
+
+                                                // Replace the existing image with the uploaded image
+                                                aadharFileLabel1.innerHTML = ""; // Clear the label content
+                                                aadharFileLabel1.appendChild(img); // Append the uploaded image
+
+                                                // Show the "Change" button and hide the label (image)
+                                                aadharFileChangeBtn1.style.display = 'block';
+                                                aadharFileLabel1.style.display = 'none';
+
+                                                // Display the uploaded image below the button
+                                                aadharSelectedFile1.innerHTML = "";
+                                                aadharSelectedFile1.appendChild(img);
+                                            }
+                                        } else {
+                                            aadharFileLabel1.innerHTML = '<img class="img-fluid" src="assets/images/upload.png" alt=""><span>Upload File</span>';
+                                            aadharFileLabel1.style.display = 'block';
+                                            aadharFileChangeBtn1.style.display = 'none';
+                                            aadharSelectedFile1.innerHTML = "";
+                                        }
+                                    });
+
+                                    aadharFileChangeBtn1.addEventListener("click", function () {
+                                        aadharFileInput1.click();
+                                    });
+                                </script>
+
+
                             </div>
 
                             <div class="col-lg-6 pb-lg-5">
 
                                 <label for="name">Name of the Co/second applican Mr. / Mrs. / Ms.:</label>
                                 <input type="text" id="name" name="name" required>
-                                <div class="another-upload-box file-upload">
-                                    <label for="file-input-2">
+
+
+                                <div class="profile-img-box-2 file-upload pt-5">
+                                    <label for="profile-img-upload-2">
                                         <img class="img-fluid" src="assets/images/upload.png" alt="">
-                                        <span>Upload Another File</span>
+                                        <span>Upload Photo</span>
                                     </label>
-                                    <input type="file" id="file-input-2" style="display: none;">
+                                    <input type="file" id="profile-img-upload-2" style="display: none;">
                                     <div class="selected-img-box">
-                                        <div id="selected-image-2"></div>
-                                        <button id="change-button-2" style="display: none;"><i
+                                        <div id="profile-select-img2"></div>
+                                        <button id="profileimg-btn2" style="display: none;"><i
                                                 class="fa fa-pen"></i></button>
                                     </div>
                                 </div>
+
+
+                                <script>
+                                    const profile_img2 = document.getElementById("profile-img-upload-2");
+                                    const profile_imgLabel2 = document.querySelector('.profile-img-box-2 label');
+                                    const profile_selectedImage2 = document.getElementById("profile-select-img2");
+                                    const profile_changeButton2 = document.getElementById("profileimg-btn2");
+
+                                    profile_img2.addEventListener("change", function () {
+                                        if (profile_img2.files.length > 0) {
+                                            const file = profile_img2.files[0];
+                                            const reader = new FileReader();
+
+                                            reader.onload = function (event) {
+                                                const img = document.createElement("img");
+                                                img.src = event.target.result;
+                                                img.classList.add("img-fluid");
+
+                                                // Replace the existing image with the uploaded image
+                                                profile_imgLabel2.innerHTML = ""; // Clear the label content
+                                                profile_imgLabel2.appendChild(img); // Append the uploaded image
+
+                                                // Show the "Change" button and hide the label (image)
+                                                profile_changeButton2.style.display = 'block';
+                                                profile_imgLabel2.style.display = 'none';
+
+                                                // Display the uploaded image below the button
+                                                profile_selectedImage2.innerHTML = "";
+                                                profile_selectedImage2.appendChild(img);
+                                            };
+
+                                            reader.readAsDataURL(file);
+                                        } else {
+                                            profile_imgLabel2.innerHTML = '<img class="img-fluid" src="assets/images/upload.png" alt=""><span>Upload profile</span>';
+                                            profile_imgLabel2.style.display = 'block';
+                                            profile_changeButton2.style.display = 'none';
+                                            profile_selectedImage2.innerHTML = "";
+                                        }
+                                    });
+
+                                    profile_changeButton2.addEventListener("click", function () {
+                                        profile_img2.click();
+                                    });
+
+                                </script>
+
+                                <div class="aadhar-file-upload2 file-upload py-5">
+                                    <label for="aadhar-file-upload-input2">
+                                        <img class="img-fluid" src="assets/images/upload.png" alt="">
+                                        <span>Upload Aadhaar</span>
+                                    </label>
+                                    <input type="file" id="aadhar-file-upload-input2" style="display: none;">
+                                    <div class="selected-img-box">
+                                        <div id="aadhar-selected-file2"></div>
+                                        <button id="aadhar-file-change-btn2" style="display: none;"><i
+                                                class="fa fa-pen"></i></button>
+                                    </div>
+                                </div>
+
+
+                                <script>
+                                    const aadharFileInput2 = document.getElementById("aadhar-file-upload-input2");
+                                    const aadharFileLabel2 = document.querySelector('.aadhar-file-upload2 label');
+                                    const aadharSelectedFile2 = document.getElementById("aadhar-selected-file2");
+                                    const aadharFileChangeBtn2 = document.getElementById("aadhar-file-change-btn2");
+
+                                    aadharFileInput2.addEventListener("change", function () {
+                                        if (aadharFileInput2.files.length > 0) {
+                                            const file = aadharFileInput2.files[0];
+
+                                            if (file.type === 'application/pdf') {
+                                                // Handle PDF file
+                                                const reader = new FileReader();
+
+                                                reader.onload = function (event) {
+                                                    const pdfData = new Uint8Array(event.target.result);
+                                                    pdfjsLib.getDocument({ data: pdfData }).promise
+                                                        .then(function (pdfDoc) {
+                                                            // Display the first page of the PDF as an image
+                                                            return pdfDoc.getPage(1);
+                                                        })
+                                                        .then(function (page) {
+                                                            const canvas = document.createElement("canvas");
+                                                            const context = canvas.getContext("2d");
+                                                            const viewport = page.getViewport({ scale: 1 });
+                                                            canvas.width = viewport.width;
+                                                            canvas.height = viewport.height;
+
+                                                            const renderContext = {
+                                                                canvasContext: context,
+                                                                viewport: viewport,
+                                                            };
+
+                                                            page.render(renderContext).promise
+                                                                .then(function () {
+                                                                    const pdfImage = document.createElement("img");
+                                                                    pdfImage.src = canvas.toDataURL("image/png");
+                                                                    pdfImage.classList.add("img-fluid");
+
+                                                                    // Replace the existing image with the PDF image
+                                                                    aadharFileLabel2.innerHTML = ""; // Clear the label content
+                                                                    aadharFileLabel2.appendChild(pdfImage); // Append the PDF image
+
+                                                                    // Show the "Change" button and hide the label (image)
+                                                                    aadharFileChangeBtn2.style.display = 'block';
+                                                                    aadharFileLabel2.style.display = 'none';
+
+                                                                    // Display the uploaded PDF image below the button
+                                                                    aadharSelectedFile2.innerHTML = "";
+                                                                    aadharSelectedFile2.appendChild(pdfImage);
+                                                                });
+                                                        });
+                                                };
+
+                                                reader.readAsArrayBuffer(file);
+                                            } else {
+                                                // Handle non-PDF files (e.g., images)
+                                                const img = document.createElement("img");
+                                                img.src = URL.createObjectURL(file);
+                                                img.classList.add("img-fluid");
+
+                                                // Replace the existing image with the uploaded image
+                                                aadharFileLabel2.innerHTML = ""; // Clear the label content
+                                                aadharFileLabel2.appendChild(img); // Append the uploaded image
+
+                                                // Show the "Change" button and hide the label (image)
+                                                aadharFileChangeBtn2.style.display = 'block';
+                                                aadharFileLabel2.style.display = 'none';
+
+                                                // Display the uploaded image below the button
+                                                aadharSelectedFile2.innerHTML = "";
+                                                aadharSelectedFile2.appendChild(img);
+                                            }
+                                        } else {
+                                            aadharFileLabel2.innerHTML = '<img class="img-fluid" src="assets/images/upload.png" alt=""><span>Upload File</span>';
+                                            aadharFileLabel2.style.display = 'block';
+                                            aadharFileChangeBtn2.style.display = 'none';
+                                            aadharSelectedFile2.innerHTML = "";
+                                        }
+                                    });
+
+                                    aadharFileChangeBtn2.addEventListener("click", function () {
+                                        aadharFileInput2.click();
+                                    });
+                                </script>
+
+
                             </div>
                             <div class="col-lg-6 pb-lg-5">
                                 <label for="name">Date of Birth:</label>
@@ -580,142 +833,218 @@
 
                         <div class="row">
                             <div class="col-lg-6">
-                                <div class="signature-upload-box file-upload">
-                                    <label for="file-input-1">
+                                <div class="signature-img-box-1 file-upload">
+                                    <label for="signature-img-upload-1">
                                         <img class="img-fluid" src="assets/images/upload.png" alt="">
-                                        <span>Upload Signature</span>
+                                        <span>Upload Photo</span>
                                     </label>
-                                    <input type="file" id="file-input-1" style="display: none;">
+                                    <input type="file" id="signature-img-upload-1" style="display: none;">
                                     <div class="selected-img-box">
-                                        <div id="selected-image-1"></div>
-                                        <button id="change-button-1" style="display: none;"><i
+                                        <div id="signature-select-img"></div>
+                                        <button id="signatureimg-btn1" style="display: none;"><i
                                                 class="fa fa-pen"></i></button>
                                     </div>
-
                                 </div>
+
+                                <script>
+
+                                    const signature_img1 = document.getElementById("signature-img-upload-1");
+                                    const signature_imgLabel1 = document.querySelector('.signature-img-box-1 label');
+                                    const signature_selectedImage1 = document.getElementById("signature-select-img");
+                                    const signature_changeButton1 = document.getElementById("signatureimg-btn1");
+
+                                    signature_img1.addEventListener("change", function () {
+                                        if (signature_img1.files.length > 0) {
+                                            const file = signature_img1.files[0];
+                                            const reader = new FileReader();
+
+                                            reader.onload = function (event) {
+                                                const img = document.createElement("img");
+                                                img.src = event.target.result;
+                                                img.classList.add("img-fluid");
+
+                                                // Replace the existing image with the uploaded image
+                                                signature_imgLabel1.innerHTML = ""; // Clear the label content
+                                                signature_imgLabel1.appendChild(img); // Append the uploaded image
+
+                                                // Show the "Change" button and hide the label (image)
+                                                signature_changeButton1.style.display = 'block';
+                                                signature_imgLabel1.style.display = 'none';
+
+                                                // Display the uploaded image below the button
+                                                signature_selectedImage1.innerHTML = "";
+                                                signature_selectedImage1.appendChild(img);
+                                            };
+
+                                            reader.readAsDataURL(file);
+                                        } else {
+                                            signature_imgLabel1.innerHTML = '<img class="img-fluid" src="assets/images/upload.png" alt=""><span>Upload Signature</span>';
+                                            signature_imgLabel1.style.display = 'block';
+                                            signature_changeButton1.style.display = 'none';
+                                            signature_selectedImage1.innerHTML = "";
+                                        }
+                                    });
+
+                                    signature_changeButton1.addEventListener("click", function () {
+                                        signature_img1.click();
+                                    });
+
+                                </script>
                             </div>
 
                             <div class="col-lg-6">
-                                <div class="another-upload-box file-upload">
-                                    <label for="file-input-2">
+                                <div class="signature-img-box-2 file-upload">
+                                    <label for="signature-img-upload-2">
                                         <img class="img-fluid" src="assets/images/upload.png" alt="">
-                                        <span>Upload Another File</span>
+                                        <span>Upload Photo</span>
                                     </label>
-                                    <input type="file" id="file-input-2" style="display: none;">
+                                    <input type="file" id="signature-img-upload-2" style="display: none;">
                                     <div class="selected-img-box">
-                                        <div id="selected-image-2"></div>
-                                        <button id="change-button-2" style="display: none;"><i
+                                        <div id="signature-select-img2"></div>
+                                        <button id="signatureimg-btn2" style="display: none;"><i
                                                 class="fa fa-pen"></i></button>
                                     </div>
-
                                 </div>
+
+
+                                <script>
+
+                                    const signature_img2 = document.getElementById("signature-img-upload-2");
+                                    const signature_imgLabel2 = document.querySelector('.signature-img-box-2 label');
+                                    const signature_selectedImage2 = document.getElementById("signature-select-img2");
+                                    const signature_changeButton2 = document.getElementById("signatureimg-btn2");
+
+                                    signature_img2.addEventListener("change", function () {
+                                        if (signature_img2.files.length > 0) {
+                                            const file = signature_img2.files[0];
+                                            const reader = new FileReader();
+
+                                            reader.onload = function (event) {
+                                                const img = document.createElement("img");
+                                                img.src = event.target.result;
+                                                img.classList.add("img-fluid");
+
+                                                // Replace the existing image with the uploaded image
+                                                signature_imgLabel2.innerHTML = ""; // Clear the label content
+                                                signature_imgLabel2.appendChild(img); // Append the uploaded image
+
+                                                // Show the "Change" button and hide the label (image)
+                                                signature_changeButton2.style.display = 'block';
+                                                signature_imgLabel2.style.display = 'none';
+
+                                                // Display the uploaded image below the button
+                                                signature_selectedImage2.innerHTML = "";
+                                                signature_selectedImage2.appendChild(img);
+                                            };
+
+                                            reader.readAsDataURL(file);
+                                        } else {
+                                            signature_imgLabel2.innerHTML = '<img class="img-fluid" src="assets/images/upload.png" alt=""><span>Upload Signature</span>';
+                                            signature_imgLabel2.style.display = 'block';
+                                            signature_changeButton2.style.display = 'none';
+                                            signature_selectedImage2.innerHTML = "";
+                                        }
+                                    });
+
+                                    signature_changeButton2.addEventListener("click", function () {
+                                        signature_img2.click();
+                                    });
+
+                                </script>
 
                             </div>
 
                             <script>
-                                // Define separate event listeners and functions for each file upload element (1 and 2)
-                                const fileInput1 = document.getElementById("file-input-1");
-                                const uploadLabel1 = document.querySelector('.signature-upload-box label');
-                                const selectedImage1 = document.getElementById("selected-image-1");
-                                const changeButton1 = document.getElementById("change-button-1");
+                                // SIGNATURE UPLOAD
+                                // const fileInput1 = document.getElementById("file-input-1");
+                                // const uploadLabel1 = document.querySelector('.signature-upload-box label');
+                                // const selectedImage1 = document.getElementById("selected-image-1");
+                                // const changeButton1 = document.getElementById("change-button-1");
 
-                                const fileInput2 = document.getElementById("file-input-2");
-                                const uploadLabel2 = document.querySelector('.another-upload-box label');
-                                const selectedImage2 = document.getElementById("selected-image-2");
-                                const changeButton2 = document.getElementById("change-button-2");
+                                // const fileInput2 = document.getElementById("file-input-2");
+                                // const uploadLabel2 = document.querySelector('.another-upload-box label');
+                                // const selectedImage2 = document.getElementById("selected-image-2");
+                                // const changeButton2 = document.getElementById("change-button-2");
 
-                                fileInput1.addEventListener("change", function () {
-                                    if (fileInput1.files.length > 0) {
-                                        const file = fileInput1.files[0];
-                                        const reader = new FileReader();
+                                // fileInput1.addEventListener("change", function () {
+                                //     if (fileInput1.files.length > 0) {
+                                //         const file = fileInput1.files[0];
+                                //         const reader = new FileReader();
 
-                                        reader.onload = function (event) {
-                                            const img = document.createElement("img");
-                                            img.src = event.target.result;
-                                            img.classList.add("img-fluid");
+                                //         reader.onload = function (event) {
+                                //             const img = document.createElement("img");
+                                //             img.src = event.target.result;
+                                //             img.classList.add("img-fluid");
+                                //             uploadLabel1.innerHTML = "";
+                                //             uploadLabel1.appendChild(img);
+                                //             changeButton1.style.display = 'block';
+                                //             uploadLabel1.style.display = 'none';
+                                //             selectedImage1.innerHTML = "";
+                                //             selectedImage1.appendChild(img);
+                                //         };
 
-                                            // Replace the existing image with the uploaded image
-                                            uploadLabel1.innerHTML = ""; // Clear the label content
-                                            uploadLabel1.appendChild(img); // Append the uploaded image
+                                //         reader.readAsDataURL(file);
+                                //     } else {
+                                //         uploadLabel1.innerHTML = '<img class="img-fluid" src="assets/images/upload.png" alt=""><span>Upload Signature</span>';
+                                //         uploadLabel1.style.display = 'block';
+                                //         changeButton1.style.display = 'none';
+                                //         selectedImage1.innerHTML = "";
+                                //     }
+                                // });
 
-                                            // Show the "Change" button and hide the label (image)
-                                            changeButton1.style.display = 'block';
-                                            uploadLabel1.style.display = 'none';
+                                // changeButton1.addEventListener("click", function () {
+                                //     fileInput1.click();
+                                // });
 
-                                            // Display the uploaded image below the button
-                                            selectedImage1.innerHTML = "";
-                                            selectedImage1.appendChild(img);
-                                        };
+                                // fileInput2.addEventListener("change", function () {
+                                //     if (fileInput2.files.length > 0) {
+                                //         const file = fileInput2.files[0];
+                                //         const reader = new FileReader();
 
-                                        reader.readAsDataURL(file);
-                                    } else {
-                                        uploadLabel1.innerHTML = '<img class="img-fluid" src="assets/images/upload.png" alt=""><span>Upload Signature</span>';
-                                        uploadLabel1.style.display = 'block';
-                                        changeButton1.style.display = 'none';
-                                        selectedImage1.innerHTML = "";
-                                    }
-                                });
+                                //         reader.onload = function (event) {
+                                //             const img = document.createElement("img");
+                                //             img.src = event.target.result;
+                                //             img.classList.add("img-fluid");
+                                //             uploadLabel2.innerHTML = "";
+                                //             uploadLabel2.appendChild(img);
+                                //             changeButton2.style.display = 'block';
+                                //             uploadLabel2.style.display = 'none';
+                                //             selectedImage2.innerHTML = "";
+                                //             selectedImage2.appendChild(img);
+                                //         };
 
-                                changeButton1.addEventListener("click", function () {
-                                    fileInput1.click();
-                                });
+                                //         reader.readAsDataURL(file);
+                                //     } else {
+                                //         uploadLabel2.innerHTML = '<img class="img-fluid" src="assets/images/upload.png" alt=""><span>Upload Another File</span>';
+                                //         uploadLabel2.style.display = 'block';
+                                //         changeButton2.style.display = 'none';
+                                //         selectedImage2.innerHTML = "";
+                                //     }
+                                // });
 
-                                fileInput2.addEventListener("change", function () {
-                                    if (fileInput2.files.length > 0) {
-                                        const file = fileInput2.files[0];
-                                        const reader = new FileReader();
-
-                                        reader.onload = function (event) {
-                                            const img = document.createElement("img");
-                                            img.src = event.target.result;
-                                            img.classList.add("img-fluid");
-                                            uploadLabel2.innerHTML = "";
-                                            uploadLabel2.appendChild(img);
-                                            changeButton2.style.display = 'block';
-                                            uploadLabel2.style.display = 'none';
-                                            selectedImage2.innerHTML = "";
-                                            selectedImage2.appendChild(img);
-                                        };
-
-                                        reader.readAsDataURL(file);
-                                    } else {
-                                        uploadLabel2.innerHTML = '<img class="img-fluid" src="assets/images/upload.png" alt=""><span>Upload Another File</span>';
-                                        uploadLabel2.style.display = 'block';
-                                        changeButton2.style.display = 'none';
-                                        selectedImage2.innerHTML = "";
-                                    }
-                                });
-
-                                changeButton2.addEventListener("click", function () {
-                                    fileInput2.click();
-                                });
+                                // changeButton2.addEventListener("click", function () {
+                                //     fileInput2.click();
+                                // });
 
 
+                                // PROFILE IMAGE UPLOAD 1
 
                                 const profile_img1 = document.getElementById("profile-img-upload-1");
                                 const profile_imgLabel1 = document.querySelector('.profil-img-box-1 label');
                                 const profile_selectedImage1 = document.getElementById("profile-select-img");
                                 const profile_changeButton1 = document.getElementById("profileimg-btn");
-
                                 profile_img1.addEventListener("change", function () {
                                     if (profile_img1.files.length > 0) {
                                         const file = profile_img1.files[0];
                                         const reader = new FileReader();
-
                                         reader.onload = function (event) {
                                             const img = document.createElement("img");
                                             img.src = event.target.result;
                                             img.classList.add("img-fluid");
-
-                                            // Replace the existing image with the uploaded image
-                                            profile_imgLabel1.innerHTML = ""; // Clear the label content
-                                            profile_imgLabel1.appendChild(img); // Append the uploaded image
-
-                                            // Show the "Change" button and hide the label (image)
+                                            profile_imgLabel1.innerHTML = "";
+                                            profile_imgLabel1.appendChild(img);
                                             profile_changeButton1.style.display = 'block';
                                             profile_imgLabel1.style.display = 'none';
-
-                                            // Display the uploaded image below the button
                                             profile_selectedImage1.innerHTML = "";
                                             profile_selectedImage1.appendChild(img);
                                         };
@@ -732,7 +1061,6 @@
                                 profile_changeButton1.addEventListener("click", function () {
                                     profile_img1.click();
                                 });
-
                             </script>
 
                         </div>

@@ -1,20 +1,19 @@
-<div class="profil-img-box-2 file-upload">
+<div class="profile-img-box-2 file-upload">
     <label for="profile-img-upload-2">
         <img class="img-fluid" src="assets/images/upload.png" alt="">
         <span>Upload Photo</span>
     </label>
     <input type="file" id="profile-img-upload-2" style="display: none;">
     <div class="selected-img-box">
-        <div id="profile-select-img"></div>
+        <div id="profile-select-img2"></div>
         <button id="profileimg-btn2" style="display: none;"><i class="fa fa-pen"></i></button>
     </div>
 </div>
 
 <script>
-
     const profile_img2 = document.getElementById("profile-img-upload-2");
-    const profile_imgLabel2 = document.querySelector('.profil-img-box-2 label');
-    const profile_selectedImage2 = document.getElementById("profile-select-img");
+    const profile_imgLabel2 = document.querySelector('.profile-img-box-2 label');
+    const profile_selectedImage2 = document.getElementById("profile-select-img2");
     const profile_changeButton2 = document.getElementById("profileimg-btn2");
 
     profile_img2.addEventListener("change", function () {
@@ -42,7 +41,7 @@
 
             reader.readAsDataURL(file);
         } else {
-            profile_imgLabel2.innerHTML = '<img class="img-fluid" src="assets/images/upload.png" alt=""><span>Upload Signature</span>';
+            profile_imgLabel2.innerHTML = '<img class="img-fluid" src="assets/images/upload.png" alt=""><span>Upload profile</span>';
             profile_imgLabel2.style.display = 'block';
             profile_changeButton2.style.display = 'none';
             profile_selectedImage2.innerHTML = "";
