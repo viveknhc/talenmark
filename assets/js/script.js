@@ -1,22 +1,3 @@
-// FORM VALIDATION
-
-// $(document).ready(function () {
-//     $('#wizard-form').validate({
-//         rules: {
-//             projectName: 'required', // Specify the validation rule for the projectName field
-//         },
-//         messages: {
-//             projectName: 'Please enter a project name', // Error message for the projectName field
-//         },
-//         submitHandler: function (form) {
-//             // This function will be called when the form is successfully validated
-//             alert('Form submitted successfully!');
-//         }
-//     });
-// });
-
-
-
 // FORM ADDING
 
 document.getElementById("form-add-btn").addEventListener("click", function () {
