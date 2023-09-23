@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show/Hide Div on Checkbox Click</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <style>
+        .ApplicantFormhidden {
+            display: none;
+        }
+    </style>
+    <label for="showApplicantCheckbox">Show Div</label>
+    <input type="checkbox" id="showApplicantCheckbox">
+    <div id="hiddenApplicant" class="ApplicantFormhidden">
+      
+
+yfjyujyu
+    </div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const showApplicantCheckbox = document.getElementById("showApplicantCheckbox");
+            const hiddenApplicant = document.getElementById("hiddenApplicant");
+
+            showApplicantCheckbox.addEventListener("change", function () {
+                if (showApplicantCheckbox.checked) {
+                    hiddenApplicant.style.display = "block";
+                } else {
+                    hiddenApplicant.style.display = "none";
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

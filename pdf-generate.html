@@ -170,6 +170,25 @@
             padding: 20px;
             /* Adjust padding as needed */
         }
+
+
+        .ApplicantFormhidden {
+            display: none;
+        }
+
+        .SecondApplicantCheckBox {
+            text-align: center;
+            padding: 50px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border: 1px dotted black;
+        }
+
+        .SecondApplicantCheckBox label {
+            color: red;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
     </style>
 
     <div class="container">
@@ -186,7 +205,7 @@
             </div>
 
             <div class="main-head text-center">
-                <h3>BOOKING APPLICATION FORM</h3>
+                <h3>BOOKING APPLICATION FORM </h3>
             </div>
             <div>
                 <p>
@@ -217,7 +236,8 @@
 
                 <table class="table">
                     <tr>
-                        <td colspan="4" class="table-head">PERSONAL INFORMATION ( to be filled in block letters)
+                        <td colspan="4" class="table-head">PERSONAL INFORMATION OF FIRST APPLICANT ( to be filled in
+                            block letters)
                         </td>
                     </tr>
 
@@ -274,41 +294,6 @@
                             <!-- <td colspan="2">Email Id: <span> abc@gmail.com</span> </th> -->
                     </tr>
 
-                    <!-- PERSONAL INFORMATION FOR SECOND APPLICANT (only visible if the second applicant is exist)-->
-
-                    <tr>
-                        <td colspan="4">
-                            <p class="m-0">Name of the sole/Second applicant</p><br>
-                            <p class="m-0">Mr. / Mrs. / Ms. <span class="name">Captain Amerrica</span> </p>
-
-                            <div class="text-center py-4">
-                                <img class="img-fluid demo-photo" src="assets/images/demo-photo.jpg" alt="">
-                            </div>
-                            </th>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="personal-col">Date of Birth: </th>
-                        <td colspan="2">05/10/1999</td>
-                 
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="personal-col">Son / Daughter/ Wife of: </th>
-                        <td colspan="2">Sharon</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="personal-col">Permanent Account No: </th>
-                        <td colspan="2">AXIS123456</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" class="personal-col">Aadhar No:</th>
-                        <td colspan="2">ADR889</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">Email Id: <span> abc@gmail.com</span></th>
-                    </tr>
-
-
-                    <!-- END PERSONAL INFORMATION FOR SECOND APPLICANT -->
 
                     <tr>
                         <td colspan="4">
@@ -401,9 +386,159 @@
                         </td>
                     </tr>
 
-                    </tbody>
+
                 </table>
 
+                <!-- PERSONAL INFORMATION FOR SECOND APPLICANT (only visible if the second applicant is exist)-->
+
+
+                <div class="SecondApplicantCheckBox">
+                    <label for="showApplicantCheckbox" class="pe-2">Second Applicant is available?</label>
+                    <input type="checkbox" id="showApplicantCheckbox">
+                </div>
+
+                <div id="hiddenApplicant" class="ApplicantFormhidden">
+
+                    <table class="table">
+
+                        <tr>
+                            <td colspan="4" class="table-head">PERSONAL INFORMATION OF SECOND APPLICANT ( to be filled
+                                in block letters)
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td colspan="4">
+                                <p class="m-0">Name of the sole/Second applicant</p><br>
+                                <p class="m-0">Mr. / Mrs. / Ms. <span class="name">Captain Amerrica</span> </p>
+
+                                <div class="text-center py-4">
+                                    <img class="img-fluid demo-photo" src="assets/images/demo-photo.jpg" alt="">
+                                </div>
+                                </th>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="personal-col">Date of Birth: </th>
+                            <td colspan="2">05/10/1999</td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="personal-col">Son / Daughter/ Wife of: </th>
+                            <td colspan="2">Sharon</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="personal-col">Permanent Account No: </th>
+                            <td colspan="2">AXIS123456</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="personal-col">Aadhar No:</th>
+                            <td colspan="2">ADR889</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Email Id: <span> abc@gmail.com</span></th>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <div class="row">
+                                    <div class="col-lg-4">Correspondence Address:</div>
+                                    <div class="col-lg-8">
+                                        <address>
+                                            Cecilia Chapman
+                                            711-2880 Nulla St.
+                                            Mankato Mississippi 96522
+                                            (257) 563-7401
+                                        </address>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <div class="row">
+                                    <div class="col-lg-4">Permanent Address:</div>
+                                    <div class="col-lg-8">
+                                        <address>
+                                            Cecilia Chapman
+                                            711-2880 Nulla St.
+                                            Mankato Mississippi 96522
+                                            (257) 563-7401
+                                        </address>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="4">
+                                <div class="row">
+                                    <div class="col-lg-4">Professional details:</div>
+                                    <div class="col-lg-8">
+                                        <address>
+                                            Cecilia Chapman
+                                            711-2880 Nulla St.
+                                            Mankato Mississippi 96522
+                                            (257) 563-7401
+                                        </address>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="4">
+                                <div class="row">
+                                    <div class="col-lg-4">Office Address:</div>
+                                    <div class="col-lg-8">
+                                        <address>
+                                            Cecilia Chapman
+                                            711-2880 Nulla St.
+                                            Mankato Mississippi 96522
+                                            (257) 563-7401
+                                        </address>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td colspan="2">Phone No (Residency) : <span>+91 123456789</span> </th>
+                            <td colspan="2">Phone No (Mobile) : <span>+91 123456789</span></td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">Phone No (Office) : <span>+91 123456789</span></th>
+                            <td colspan="2">Whatsapp No (Office) : <span>+91 123456789</span></td>
+                        </tr>
+
+
+
+
+                        <!-- <tr>
+                        <td colspan="4">
+                            <p class="d-flex align-items-center">
+                                How did you come to know about this project?
+                                <input type="checkbox" class="mx-2">Advertisement
+                                <input type="checkbox" class="mx-2">Company website
+                                <input type="checkbox" class="mx-2">Referral
+                            </p>
+                            <p class="d-flex align-items-center">
+                                Existing Talenmark Customer?
+                                <input type="checkbox" class="mx-2">Yes
+                                <input type="checkbox" class="mx-2">No If Yes, specify name of project you own in <input
+                                    type="text">
+
+                            </p>
+                        </td>
+                    </tr> -->
+
+                        <!-- END PERSONAL INFORMATION FOR SECOND APPLICANT -->
+
+                        </tbody>
+                    </table>
+
+                </div>
 
                 <table class="table">
                     <tr>
@@ -697,6 +832,25 @@
             };
             html2pdf().from(divContent).set(options).save();
 
+        });
+
+
+
+
+
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const showApplicantCheckbox = document.getElementById("showApplicantCheckbox");
+            const hiddenApplicant = document.getElementById("hiddenApplicant");
+
+            showApplicantCheckbox.addEventListener("change", function () {
+                if (showApplicantCheckbox.checked) {
+                    hiddenApplicant.style.display = "block";
+                } else {
+                    hiddenApplicant.style.display = "none";
+                }
+            });
         });
     </script>
 
