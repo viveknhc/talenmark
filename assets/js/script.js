@@ -1,3 +1,20 @@
+
+// SECOND APPLICANT
+document.addEventListener("DOMContentLoaded", function () {
+    const showApplicantCheckbox = document.getElementById("showApplicantCheckbox");
+    const hiddenApplicant = document.getElementById("hiddenApplicant");
+
+    showApplicantCheckbox.addEventListener("change", function () {
+        if (showApplicantCheckbox.checked) {
+            hiddenApplicant.style.display = "block";
+        } else {
+            hiddenApplicant.style.display = "none";
+        }
+    });
+});
+
+
+
 // FORM ADDING
 
 document.getElementById("form-add-btn").addEventListener("click", function () {

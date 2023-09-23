@@ -229,3 +229,22 @@ section {
     font-weight: 600;
 }
 
+
+
+.ApplicantFormhidden {
+    display: none;
+}
+
+.SecondApplicantCheckBox {
+    text-align: center;
+    padding: 50px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px dotted black;
+}
+
+.SecondApplicantCheckBox label {
+    color: red;
+    text-transform: uppercase;
+    font-weight: 600;
+}

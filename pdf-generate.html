@@ -172,23 +172,9 @@
         }
 
 
-        .ApplicantFormhidden {
-            display: none;
-        }
 
-        .SecondApplicantCheckBox {
-            text-align: center;
-            padding: 50px;
-            margin: 10px 0;
-            border-radius: 10px;
-            border: 1px dotted black;
-        }
 
-        .SecondApplicantCheckBox label {
-            color: red;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
+
     </style>
 
     <div class="container">
@@ -391,14 +377,6 @@
 
                 <!-- PERSONAL INFORMATION FOR SECOND APPLICANT (only visible if the second applicant is exist)-->
 
-
-                <div class="SecondApplicantCheckBox">
-                    <label for="showApplicantCheckbox" class="pe-2">Second Applicant is available?</label>
-                    <input type="checkbox" id="showApplicantCheckbox">
-                </div>
-
-                <div id="hiddenApplicant" class="ApplicantFormhidden">
-
                     <table class="table">
 
                         <tr>
@@ -538,7 +516,7 @@
                         </tbody>
                     </table>
 
-                </div>
+   
 
                 <table class="table">
                     <tr>
@@ -834,24 +812,6 @@
 
         });
 
-
-
-
-
-
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const showApplicantCheckbox = document.getElementById("showApplicantCheckbox");
-            const hiddenApplicant = document.getElementById("hiddenApplicant");
-
-            showApplicantCheckbox.addEventListener("change", function () {
-                if (showApplicantCheckbox.checked) {
-                    hiddenApplicant.style.display = "block";
-                } else {
-                    hiddenApplicant.style.display = "none";
-                }
-            });
-        });
     </script>
 
 
