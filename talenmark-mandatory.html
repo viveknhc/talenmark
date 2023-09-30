@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Talenmark</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            overflow-x: hidden;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        section {
+            padding: 50px 0px;
+        }
+
+        .logo-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-box img {
+            max-width: 50px;
+        }
+
+        .logo-box h3 {
+            color: #000 !important;
+        }
+
+        .form-section h3 {
+            padding: 20px 0;
+            font-weight: 700;
+            color: #C9171E;
+        }
+
+        #personal-from {
+            border-radius: 15px;
+            padding: 50px;
+            box-shadow: 0px 0px 4px 0px rgb(0 0 0 / 25%);
+
+        }
+
+        #personal-from h5 {
+            padding: 0px 0px 20px 0;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 700;
+
+        }
+
+        #personal-from label {
+            display: block;
+            padding: 0px 0px 8px 0px;
+        }
+
+        #personal-from input[type=text],
+        input[type=number],
+        input[type=email],
+        input[type=date],
+        input[type=file] {
+            width: 100%;
+            border-radius: 15px;
+            padding: 10px 20px;
+            background-color: #F7F7F7;
+            border: none;
+            border: 1px #a5a5a5 solid;
+        }
+
+        #personal-from input[type=checkbox] {
+            transform: scale(1.5);
+        }
+
+
+
+        #personal-from textarea {
+            width: 100%;
+            border-radius: 15px;
+            padding: 10px 20px;
+            background-color: #F7F7F7;
+            border: none;
+            border: 1px #a5a5a5 solid;
+        }
+
+        #personal-from textarea:focus {
+            border: none;
+            outline: none;
+        }
+
+        #personal-from input:focus {
+            border: none;
+            outline: none;
+        }
+
+        #personal-from .button-box {
+            text-align: end;
+            padding-top: 29px;
+        }
+
+        #personal-from .button-box .prev,
+        #personal-from .button-box .mandatory-btn {
+            border: 0;
+            padding: 10px 10px;
+            border-radius: 10px;
+            background-color: red;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        #personal-from .button-box .next {
+            border: 0;
+            padding: 10px 20px !important;
+            border-radius: 10px;
+            background-color: red;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        #personal-from .button-box .submit {
+            border: 0;
+            padding: 10px 10px;
+            border-radius: 10px;
+            background-color: rgb(30, 0, 255);
+            color: #fff;
+            font-weight: 700;
+        }
+
+        #personal-from .form-add-btn-box {
+            padding: 29px 0;
+            display: flex;
+            justify-content: end;
+        }
+
+        #personal-from .form-add-btn-box button {
+            border: 1px solid red;
+            border-radius: 4px;
+            padding: 4px 14px;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            color: red;
+            font-weight: 700;
+        }
+
+        #personal-from .form-add-btn-box button i {
+            color: #ff0000;
+        }
+
+        #personal-from .signature-upload-box {
+            padding: 10px;
+            border-radius: 20px;
+        }
+
+        #personal-from .file-upload label {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #personal-from .file-upload span {
+            font-size: 15px;
+            padding-top: 10px;
+            font-weight: 500;
+        }
+
+        #personal-from .signature-upload-box .upload-icon {
+            padding: 10px;
+            border: 1px dotted red;
+            border-radius: 14px;
+            max-width: 100px;
+            cursor: pointer;
+        }
+
+        #personal-from .signature-upload-box #selected-image {
+            max-width: 195px;
+            border-radius: 15px;
+        }
+
+
+
+        #personal-from .signature-upload-box #file-input {
+            display: none;
+        }
+        .error{
+            color: red;
+        }
+    </style>
+
+    <section class="form-section">
+        <div class="container">
+            <div class="logo-box">
+                <img src="assets/images/logo-icon.png" alt="">
+                <h3>TALENMARK</h3>
+            </div>
+            <div class="text-center">
+                <h3>BOOKING APPLICATION FORM</h3>
+            </div>
+            <div class="mandatory-form-container">
+                <form id="personal-from" class="mandatory-form">
+                    <h5>PERSONAL INFORMATION ( to be filled in block letters )</h5>
+                    <div class="row">
+                        <div class="col-lg-6 pb-lg-5">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name">
+                            <p id="nameError" class="error"></p>
+                        </div>
+
+                        <div class="col-lg-6 pb-lg-5">
+                            <label for="name">Date of Birth</label>
+                            <input type="date" id="dob" name="dob">
+                            <p id="dobError" class="error"></p>
+                        </div>
+
+
+                        <div class="col-lg-6 pb-lg-5">
+                            <label for="name">Aadhar Number/ID Proof</label>
+                            <input type="number" id="adhaar" name="adhaar">
+                            <p id="adhaarError" class="error"></p>
+                        </div>
+
+                        <div class="col-lg-6 pb-lg-5">
+                            <label for="name">Contact Number</label>
+                            <input type="number" id="contact" name="contact">
+                            <p id="contactError" class="error"></p>
+                        </div>
+                        
+                        <div class="col-lg-6 pb-lg-5">
+                            <label for="name">Alternative Number</label>
+                            <input type="number" id="altContact" name="altContact">
+                            <p id="altContactError" class="error"></p>
+                        </div>
+
+                        <div class="col-lg-6 pb-lg-5">
+                            <label for="name">Upload Photo</label>
+                            <input type="file" id="photo" name="photo" class="photo">
+                            <p id="photoError" class="error"></p>
+                        </div>
+
+                        <div class="pb-lg-5">
+                            <label for="name">Permanent Address:</label>
+                            <textarea name="address" id="address" cols="30" rows="5"></textarea>
+                            <p id="addressError" class="error"></p>
+                        </div>
+
+
+
+                        <!-- <div class="col-lg-6 pb-lg-5">
+                            <div class="d-flex justify-content-evenly">
+                                <div class="profil-img-box-1 file-upload pt-5">
+                                    <label for="profile-img-upload-1">
+                                        <img class="img-fluid" src="assets/images/upload.png" alt="">
+                                        <span>Upload Profile Photo</span>
+                                    </label>
+                                    <input type="file" id="profile-img-upload-1" style="display: none;">
+                                    <div class="selected-img-box">
+                                        <div id="profile-select-img"></div>
+                                        <button id="profileimg-btn" style="display: none;"><i
+                                                class="fa fa-pen"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+
+
+                    </div>
+
+                    <h5>FAMILY DETAILS</h5>
+                    <div class="row">
+
+                        <div class="col-lg-6 pb-lg-5">
+                            <label for="name">Name of spouse::</label>
+                            <input type="text" id="spouseName" name="spouseName">
+                            <p id="spouseNameError" class="error"></p>
+                        </div>
+
+                        <div class="col-lg-3 pb-lg-5">
+                            <label for="name">Date of Birth:</label>
+                            <input type="date" id="spouseDob" name="spouseDob">
+                            <p id="spouseDobError" class="error"></p>
+                        </div>
+
+
+
+                        <div class="col-lg-3 pb-lg-5">
+                            <label for="name">Sex:</label>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="d-flex">
+                                        <p class="m-0 pe-3">
+                                            Male
+                                        </p>
+                                        <input type="radio"  id="spousemale" name="spouseGender" value="Male">
+                                    
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="d-flex">
+                                        <p class="m-0 pe-3">
+                                            Female
+                                        </p>
+                                        <input type="radio"  id="spousefemale" name="spouseGender" value="Female">
+                                 
+                                    </div>
+                                </div>
+                                <p id="spousemaleError" class="error"></p>
+                               
+                            </div>
+                        </div>
+
+                        
+                        <div class="row">
+                            <div class="form-add-btn-box">
+                                <button id="form-add-btn">
+                                    Add
+                                    <i class="fa fa-solid fa-plus fa-lg ps-3"></i>
+                                </button>
+
+                            </div>
+                        </div>
+
+                        <div class="row" id="add-form-content">
+                            <div class="col-lg-6 pb-lg-5">
+                                <label for="name">Name of Child:</label>
+                                <input type="text" id="childName" name="childName">
+                                <p id="childNameError" class="error"></p>
+                            </div>
+                            <div class="col-lg-3 pb-lg-5">
+                                <label for="name">Date of Birth:</label>
+                                <input type="date" id="childDob" name="childDob">
+                                <p id="childDobError" class="error"></p>
+                            </div>
+                            <div class="col-lg-3 pb-lg-5">
+                                <label for="name">Sex:</label>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="d-flex">
+                                            <p class="m-0 pe-3">
+                                                Male
+                                            </p>
+                                            <input type="radio"  id="male" name="gender" value="Male">
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="d-flex">
+                                            <p class="m-0 pe-3">
+                                                Female
+                                            </p>
+                                            <input type="radio"  id="female" name="gender" value="Female">
+                                     
+                                        </div>
+                                    </div>
+                                    <p id="maleError" class="error"></p>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-container button-box">
+                        <button type="submit" class="button mandatory-btn">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"
+    integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.8.335/pdf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script>
+    $(document).ready(function () {
+        $("#personal-from").validate({
+            errorPlacement: function (error, element) {
+                // Display errors in the <p> tag with the corresponding ID
+                error.appendTo("#" + element.attr("id") + "Error");
+            },
+            rules: {
+                name: "required",
+                dob:{
+                    required:true,
+                    date:true,
+                },
+                adhaar:"required",
+                contact:{
+                    required:true,
+                    number:true
+                },
+                altContact:"required",
+                photo:"required",
+                address:"required",
+                spouseName:"required",
+                spouseDob:{
+                    required:true,
+                    date:true,
+                },
+                childName:"required",
+                childDob:{
+                    required:true,
+                    date:true,
+                },
+                gender:"required",
+                spouseGender:"required"
+
+            },
+            messages: {
+                name: "Please enter your name",
+                dob:{
+                    required:"Please enter your Date of Birth",
+                    date:"enter valid date"
+                },
+                adhaar:"Please enter  Aadhaar Number",
+                contact:"Please enter Contact number",
+                altContact:"Please enter Alternative Contact number",
+                photo:"Upload photo",
+                address:"Please enter Address",
+                spouseName:"Please enter Spouse Name",
+                spouseDob:{
+                    required:"Please enter Spouse Date Of Birth",
+                    date:"enter valid date"
+                },
+                childName:"Please enter child Name",
+                childDob:{
+                    required:"Please enter child Date of Birth",
+                    date:"enter valid date"
+                },
+                gender:"Please select Child gender",
+                spouseGender:"Please select Spouse gender"
+                
+            },
+            submitHandler: function (form) {
+                // Handle the form submission here
+                // You can use AJAX or any other method to submit the form data
+                alert("Form submitted successfully!");
+            },
+        });
+    });
+    </script>
+</body>
+
+</html>

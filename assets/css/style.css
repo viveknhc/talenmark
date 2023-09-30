@@ -52,7 +52,7 @@ section {
     padding: 0px 0px 8px 0px;
 }
 
-#wizard-form input[type=text],input[type=number],input[type=email],input[type=date] {
+#wizard-form input[type=text],input[type=number],input[type=email],input[type=date],input[type=file] {
     width: 100%;
     border-radius: 15px;
     padding: 10px 20px;
@@ -91,7 +91,7 @@ section {
     padding-top: 29px;
 }
 
-#wizard-form .button-box .prev {
+#wizard-form .button-box .prev,#wizard-form .button-box .mandatory-btn {
     border: 0;
     padding: 10px 10px;
     border-radius: 10px;
